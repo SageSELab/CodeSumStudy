@@ -1,0 +1,496 @@
+,code,docstring,codeBERT Predictions,NeuralCodeSum Predictions,Code2Seq Predictions,Comments - CodeBERT(Person1),Comments - NeuralCodeSum (Person1),Comments - Code2Seq (Person1),Comments - CodeBERT(Person2),Comments - NeuralCodeSum (Person2),Comments - Code2Seq (Person2),Commens-CodeBERT (Person3) ,Comments - NeuralCodeSum (Person3),Comments - Code2Seq (Person3),CodeBERT (Final Categories),NeuralCodeSum (Final Categories),Code2Seq (Final Categories),Raw_Methods,Ground_Truth
+0,public void setportstring(string port) { portstring=port; },"sets the server port number nb it accepts a string, and not an int",sets the port,sets the port,sets the var of the osc address,Missing Non-Critical Information,Missing Non-Critical Information,Incorrect Identifier/Attribute,,,,Missing Non-Critical Information,Missing Non-Critical Information,Missing Identifier,Missing Non-Critical Information,Missing Non-Critical Information,Incorrect Identifier/Attribute,public void setPortString(String port) { portString=port; },"/**
+ * Sets the server port number. NB it accepts a String, and not an int.
+ * @param port int
+ */"
+1,public boolean canredo() { return indexofnextadd < history.size(); },returns true if a redo is possible,returns true if the history can be redone,returns true if there are more points to redo,returns whether it has the next element,Consistent with Specific Info ,Consistent with Specific Info ,Missing Critical Information,,,,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,Consistent with Specific Info ,Consistent with Specific Info ,Missing Critical Information,"public boolean canRedo() {
+  return indexOfNextAdd < history.size();
+  }","/**
+  * Returns true if a redo is possible.
+  */"
+2,public items withtotalresults(biginteger value) { settotalresults(value); return this; },sets the value of the totalresults property,sets the total results,sets the total number of items in the group,returns the total results for the given var,Consistent with Specific Info ,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,,,,Consistent with Specific Info ,Partial Incorrect Information,Incorrect Identifier/Attribute,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,"public Items withTotalResults(BigInteger value) {
+  setTotalResults(value);
+  return this;
+  }","/**
+  * Sets the value of the TotalResults property.
+  * 
+  * @param value
+  * @return
+  *  this instance
+  */"
+3,public browsenodelookuprequest withresponsegroup(string... values) { for (string value: values) { getresponsegroup().add(value); } return this; },sets the value of the responsegroup property,sets the response group,returns a list of the values returned by the specified query,returns a new response with the given var,Consistent but Missing Specific Info,Missing Non-Critical Information,Incorrect Identifier/Attribute,,,,Consistent but Missing Specific Info,Partial Incorrect Information,Incorrect Identifier/Attribute,Consistent but Missing Specific Info,Missing Non-Critical Information,Incorrect Identifier/Attribute,"public BrowseNodeLookupRequest withResponseGroup(String... values) {
+  for (String value: values) {
+  getResponseGroup().add(value);
+  }
+  return this;
+  }","/**
+  * Sets the value of the ResponseGroup property.
+  * 
+  * @param values
+  * @return
+  *  this instance
+  */"
+4,public boolean ishastripodmount() { return hastripodmount; },gets the value of the hastripodmount property,returns the hasripodmount,gets the },returns whether it has the,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incomplete Sentence,,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incomplete Sentence,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incomplete Sentence,"public Boolean isHasTripodMount() {
+  return hasTripodMount;
+  }","/**
+  * Gets the value of the hasTripodMount property.
+  * 
+  * @return
+  *  possible object is
+  *  {@link Boolean }
+  *  
+  */"
+5,public string getschema() { return fschema; },returns a path to the xml schema of a extension point,returns the schema,returns the name of the xml schema,returns the schema schema,Consistent but Missing Specific Info,Consistent with Specific Info ,Repetition,,,,Consistent but Missing Specific Info,Missing Non-Critical Information,Repetition,Consistent but Missing Specific Info,Missing Non-Critical Information,Repetition,"public String getSchema() {
+  return fSchema;
+  }","/**
+  * Returns a path to the xml schema of a extension point.
+  * 
+  * @return String
+  */"
+6,private void notifyreceivedresource(resourcereceivedinfo info) { for(pastryprotocollistenerifc listener : listeners) { listener.resourcereceived(info); } },informs the configured listener(s) that the resource described by the input  has been received by this node for local storage,notify all listeners that a resource was received,notifies the listeners that a } message was received,notifies all listeners that a new var has been received,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,,,,Improves upon Semantic Meaning ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,Improves upon Semantic Meaning ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,"private void notifyReceivedResource(ResourceReceivedInfo info) {
+  for(PastryProtocolListenerIfc listener : listeners) {
+  listener.resourceReceived(info);
+  }
+  }","/**
+  * Informs the configured listener(s) that the resource described by the input
+  * {@link ResourceAssignedInfo} has been received by this node for local storage.
+  *
+  * @param info The resource description
+  */"
+7,public float getdashphase() { return dashphase; },gets the dash phase of the basicstroke,gets the dashphase,returns the phase of dealpoint,get the current velocity of the current value,Consistent but Missing Specific Info,Partial Incorrect Information,Semantically Unrelated to Code,,,,Consistent but Missing Specific Info,Partial Incorrect Information,Different Meaning,Consistent but Missing Specific Info,Partial Incorrect Information,Semantically Unrelated to Code,"public float getDashPhase() {
+  return dashPhase;
+  }","/**
+  * Gets the dash phase of the BasicStroke.
+  * 
+  * @return the dash phase of the BasicStroke.
+  */"
+8,"public void setcolorfilter(int color, porterduff.mode mode) { setcolorfilter(new porterduffcolorfilter(color, mode)); }",specify a color and porterduff mode to be the colorfilter for this  drawable,sets the color filter,sets the color of the whole phrase,sets the var of the var,Focusing Only on Method Name ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,,,,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,Focusing Only on Method Name ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,"public void setColorFilter(int color, PorterDuff.Mode mode) {
+  setColorFilter(new PorterDuffColorFilter(color, mode));
+  }","/**
+  * Specify a color and porterduff mode to be the colorfilter for this
+  * drawable.
+  */"
+9,public void setreadtimeout(int timeout) { if (0 > timeout) { } this.readtimeout = timeout; },sets the timeout value in milliseconds for reading from the input stream,sets the read timeout,sets the number of milliseconds to wait for a response before timing out,sets the timeout to read from the server,Focusing Only on Method Name ,Consistent with Specific Info ,Consistent but Missing Specific Info,,,,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent but Missing Specific Info,Focusing Only on Method Name ,Consistent with Specific Info ,Consistent but Missing Specific Info,"public void setReadTimeout(int timeout) {
+  if (0 > timeout) {
+  throw new IllegalArgumentException(Msg.getString(""K0036"")); //$NON-NLS-1$
+  }
+  this.readTimeout = timeout;
+  }","/**
+  * Sets the timeout value in milliseconds for reading from the input stream
+  * of an established connection to the resource. A {@code
+  * SocketTimeoutException} is thrown if the connection could not be
+  * established in this time. Default is {@code 0} which stands for an
+  * infinite timeout.
+  * 
+  * @param timeout
+  *  the reading timeout in milliseconds.
+  * @throws IllegalArgumentException
+  *  if the parameter {@code timeout} is less than zero.
+  * @since Android 1.0
+  */"
+10,"public void testcompareandsetinmultiplethreads() { final atomicreference ai = new atomicreference(one); thread t = new thread(new runnable() { public void run() { while(!ai.compareandset(two, three)) thread.yield(); }}); try { t.start(); asserttrue(ai.compareandset(one, two)); t.join(long_delay_ms); assertfalse(t.isalive()); assertequals(ai.get(), three); } catch(exception e) { unexpectedexception(); } }",compareandset in one thread enables another waiting for value  to succeed,test compare and set in multiple threads,tests the multiple thread functionality of the } and } methods,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,,,,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,"public void testCompareAndSetInMultipleThreads() {
+  final AtomicReference ai = new AtomicReference(one);
+  Thread t = new Thread(new Runnable() {
+  public void run() {
+  while(!ai.compareAndSet(two, three)) Thread.yield();
+  }});
+  try {
+  t.start();
+  assertTrue(ai.compareAndSet(one, two));
+  t.join(LONG_DELAY_MS);
+  assertFalse(t.isAlive());
+  assertEquals(ai.get(), three);
+  }
+  catch(Exception e) {
+  unexpectedException();
+  }
+  }","/**
+  * compareAndSet in one thread enables another waiting for value
+  * to succeed
+  */"
+11,"public void testgetthreadfactory() { threadfactory tf = new simplethreadfactory(); threadpoolexecutor p = new threadpoolexecutor(1,2,long_delay_ms, timeunit.milliseconds, new arrayblockingqueue<runnable>(10), tf, new nooprehandler()); assertsame(tf, p.getthreadfactory()); joinpool(p); }",getthreadfactory returns factory in constructor if not set,tests the functionality of getthreadfactory,tests the } method,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,,,,Missing Non-Critical Information,Incorrect Identifier/Attribute,0,"public void testGetThreadFactory() {
+  ThreadFactory tf = new SimpleThreadFactory();
+  ThreadPoolExecutor p = new ThreadPoolExecutor(1,2,LONG_DELAY_MS, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(10), tf, new NoOpREHandler());
+  assertSame(tf, p.getThreadFactory());
+  joinPool(p);
+  }","/** 
+  * getThreadFactory returns factory in constructor if not set
+  */"
+12,"private void indexbyid() { if (sessionsbyid == null) { sessionsbyid = new hashmap<bytearray, sslsession>(); for (sslsession session : sessions.values()) { sessionsbyid.put(new bytearray(session.getid()), session); } } }",ensures that the id-based index is initialized,index all sessions by their id,method called when the index is changed,returns the session id id,Consistent with Specific Info ,Different Meaning,Repetition,Consistent with Specific Info ,Different Meaning,Repetition,,,,Consistent with Specific Info ,Different Meaning,Repetition,"private void indexById() {
+  if (sessionsById == null) {
+  sessionsById = new HashMap<ByteArray, SSLSession>();
+  for (SSLSession session : sessions.values()) {
+  sessionsById.put(new ByteArray(session.getId()), session);
+  }
+  }
+  }","/**
+  * Ensures that the ID-based index is initialized.
+  */"
+13,"public void transferallfields(string fromtable, string totable) { this.mode = mode_transfer_all; this.tableleft = fromtable; this.tableright = totable; start(); }",set up tables from to,transfer all data from one table to another,copies all the columns from the given table to the given table,set the var of the var,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,,,,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,"public void transferAllFields(String fromTable, String toTable) {
+  this.mode = MODE_TRANSFER_ALL;
+  this.tableLeft = fromTable;
+  this.tableRight = toTable;
+  start();
+  }","/**
+  * set up tables from to
+  * 
+  * @param fromTable
+  * @param toTable
+  */"
+14,public string getabsolutepath() { return getlocation().toosstring(); },returns the absolute pathname string of this abstract pathname,gets the absolute path,returns the absolute path of the file,returns the absolute path of the location,Missing Non-Critical Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Non-Critical Information,Missing Non-Critical Information,Consistent but Missing Specific Info,,,,Missing Non-Critical Information,Missing Non-Critical Information,Consistent but Missing Specific Info,"public String getAbsolutePath() {
+  return getLocation().toOSString();
+  }","/**
+  * Returns the absolute pathname string of this abstract pathname.
+  * 
+  * @return the absolute location.
+  */"
+15,protected void optimize() { optimize(false); },calls the optimization in soft mode: free resources only if needed,performs the optimization,optimizes the current position,the,Missing Critical Information,Missing Critical Information,Incomplete Sentence,Missing Critical Information,Missing Critical Information,Incomplete Sentence,,,,Missing Critical Information,Missing Critical Information,Incomplete Sentence,"protected void optimize() {
+optimize(false);
+}","/**
+* Calls the optimization in soft mode: free resources only if needed.
+*/"
+16,public boolean getchanged() { return changed; },checks if any changes have been made to the document since last save,returns the changed,returns the state of the change,returns whether the data has been changed,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent with Specific Info ,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent with Specific Info ,,,,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent with Specific Info ,"public boolean getChanged() {
+  return changed;
+  }","/**
+  * checks if any changes have been made to the document since last save
+  */"
+17,"public void testbytearraytostring() throws exception { string source=""abcdefghijklmnopqrstuvwxyz\u1234\n""; string result = utilities.bytearraytostring(source.getbytes(""utf-8"")); assertequals("" 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70 abcdefghijklmnop""+newline+ "" 71 72 73 74 75 76 77 78 79 7a e1 88 b4 0a qrstuvwxyz....""+newline+newline, result); }","test of bytearraytostring method, of class orgoclcossrwutilities",test bytearraytostring,tests the tostring method,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Critical Information,Missing Critical Information,0,Focusing Only on Method Name ,Missing Critical Information,0,,,,Missing Critical Information,Missing Critical Information,0,"public void testByteArrayToString() throws Exception {
+  String source=""abcdefghijklmnopqrstuvwxyz\u1234\n"";
+//  System.out.println(""testByteArrayToString:\n""+
+//  Utilities.byteArrayToString(source.getBytes(""UTF-8"")));
+  String result = Utilities.byteArrayToString(source.getBytes(""UTF-8""));
+  assertEquals("" 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70  abcdefghijklmnop""+newLine+
+  "" 71 72 73 74 75 76 77 78 79 7a e1 88 b4 0a qrstuvwxyz....""+newLine+newLine, result);
+  }","/**
+  * Test of byteArrayToString method, of class ORG.oclc.os.SRW.Utilities.
+  */"
+18,public void removelaststmt() { final listiterator iter = stmts.listiterator(stmts.size()); while (iter.hasprevious()) { final stmt s = (stmt) iter.previous(); if (s instanceof labelstmt) { continue; } iter.remove(); return; } },removes the last non-label statement from the statement list,removes the last statement,removes all sprites of this construction,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Non-Critical Information,Algorithmically Incorrect,0,Missing Non-Critical Information,Algorithmically Incorrect,0,,,,Missing Non-Critical Information,Algorithmically Incorrect,0,"public void removeLastStmt() {
+final ListIterator iter = stmts.listIterator(stmts.size());
+
+while (iter.hasPrevious()) {
+final Stmt s = (Stmt) iter.previous();
+
+if (s instanceof LabelStmt) {
+continue;
+}
+
+iter.remove();
+return;
+}
+}","/**
+* Removes the last non-Label statement from the statement list.
+*/"
+19,public void setconfirmbuttontooltiptext(string text){ confirmbutton.settooltiptext(text); },change the confirm button tooltip text (hook for i18n),sets the tooltip text for the confirm button,sets the text of the confirm button,sets the var to be shown on the button,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,Consistent with Specific Info ,Missing Non-Critical Information,Incorrect Identifier/Attribute,,,,Consistent with Specific Info ,Missing Non-Critical Information,Incorrect Identifier/Attribute,"public void setConfirmButtonTooltipText(String text){
+  confirmButton.setToolTipText(text);
+  }",/** Change the confirm button tooltip text (hook for i18n)*/
+20,public void setprojectviewcontroller(projectviewcontroller controller){ this.projectviewcontroller = controller; },if attaching it to the projectdetailview,set the project view controller,set the controller for this controller,sets the project view,Focusing Only on Method Name ,Repetition,Missing Identifier,Focusing Only on Method Name ,Repetition,Missing Identifier,,,,Focusing Only on Method Name ,Repetition,Missing Identifier,"public void setProjectViewController(ProjectViewController controller){
+this.projectViewController = controller;
+}","/**
+* If attaching it to the projectDetailView
+* @param controller
+*/"
+21,"public void testgetsetcontextprinting() { ttcclayout layout = new ttcclayout(); assertequals(true, layout.getcontextprinting()); layout.setcontextprinting(false); assertequals(false, layout.getcontextprinting()); layout.setcontextprinting(true); assertequals(true, layout.getcontextprinting()); }",tests getcontextprinting and setcontextprinting,some checks for the getcontextprinting() and setcontextprinting() methods,tests the functionality of the setter and getter for the context,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Consistent with Specific Info ,Improves upon Semantic Meaning ,0,Consistent with Specific Info ,Improves upon Semantic Meaning ,0,,,,Consistent with Specific Info ,Improves upon Semantic Meaning ,0,"public void testGetSetContextPrinting() {
+  TTCCLayout layout = new TTCCLayout();
+  assertEquals(true, layout.getContextPrinting());
+  layout.setContextPrinting(false);
+  assertEquals(false, layout.getContextPrinting());
+  layout.setContextPrinting(true);
+  assertEquals(true, layout.getContextPrinting());
+  }","/**
+  * Tests getContextPrinting and setContextPrinting.
+  */"
+22,"public mtcomponent getcreatedsvgcomponents(svgdocument svgdoc){ arraylist<mtcomponent> components = new arraylist<mtcomponent>(); opacitystack.push(1.0f); traversesvgdoc(svgdoc, components); opacitystack.pop(); mtcomponent[] comps = (mtcomponent[])components.toarray(new mtcomponent[components.size()]); return comps[0]; }",creates and returns components of the provided svg document for displaying,get created svg components,gets the opacity,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Non-Critical Information,Missing Critical Information,0,Missing Non-Critical Information,Missing Critical Information,0,,,,Missing Non-Critical Information,Missing Critical Information,0,"public MTComponent getCreatedSvgComponents(SVGDocument svgDoc){
+ArrayList<MTComponent> components = new ArrayList<MTComponent>();
+opacityStack.push(1.0f);
+traverseSVGDoc(svgDoc, components);
+opacityStack.pop();
+
+MTComponent[] comps = (MTComponent[])components.toArray(new MTComponent[components.size()]);
+//Only returning the 1st component, since this should be the top-level <svg> element and only 1!?
+return comps[0];
+}","/**
+* Creates and returns components of the provided svg document for displaying.
+* 
+* @param svgDoc the svg doc
+* 
+* @return the created svg components
+*/"
+23,public cursor getinitialcursor() { return cursor.getpredefinedcursor(cursor.crosshair_cursor); },by default all creation modes use crosshair_cursor,returns the initial cursor,returns the cursor to use when the mouse is over the screen,returns the cursor used for cursor,Missing Critical Information,Missing Critical Information,Missing Critical Information,Missing Critical Information,Unnecessary Incorrect Information,Repetition,,,,Missing Critical Information,Missing Critical Information,Missing Critical Information,"public Cursor getInitialCursor() {
+  return Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
+  }",/** By default all creation modes use CROSSHAIR_CURSOR. */
+24,"public void setSchema(String s) throws SQLException { executeUpdate(""SET search_path TO ""+s+"", public""); schema=s; description=description.substring(0,description.lastIndexOf(' '))+"" ""+schema; }",sets the default schema,sets the schema attribute of the search_pathtable object,sets the schema attribute of the simplepooledconnection object,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,0,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,0,,,,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,0,"public void setSchema(String s) throws SQLException {
+  executeUpdate(""SET search_path TO ""+s+"", public"");
+  schema=s;
+  description=description.substring(0,description.lastIndexOf(' '))+"" ""+schema;
+  }",/** Sets the default schema*/
+25,public boolean getMissingMerge () { return m_missing_merge; },get whether missing values are being distributed or not,returns true if a missing merge flag is set,returns true if missing segments are missing,returns whether the merged entries are missing are missing,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,"public boolean getMissingMerge () {
+  return  m_missing_merge;
+  }","/**
+  * get whether missing values are being distributed or not
+  *
+  * @return true if missing values are being distributed.
+  */"
+26,public double getToleranceParameter() { return m_smoTParameter; },get the value of t used with smo,get the tolerance parameter,returns the parameter of the parameter,returns the parameter value,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Missing Identifier,Consistent but Missing Specific Info,Repetition,Missing Identifier,,,,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Missing Identifier,"public double getToleranceParameter() {
+  return m_smoTParameter;
+  }","/**
+  * Get the value of T used with SMO
+  *
+  * @return the value of T
+  */"
+27,"public String reportFrequencyTipText() { return ""Set how frequently reports are generated. Default is equal to "" +""the number of generations meaning that a report will be printed for "" +""initial and final generations. Setting the value to 5 will result in "" +""a report being printed every 5 generations.""; }",returns the tip text for this property,generate report frequency text,reports the text to the console,returns a string representation of the current number of,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incomplete Sentence,Consistent with Specific Info ,Incorrect Identifier/Attribute,Missing Critical Information,,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,Missing Critical Information,"public String reportFrequencyTipText() {
+  return ""Set how frequently reports are generated. Default is equal to ""
+  +""the number of generations meaning that a report will be printed for ""
+  +""initial and final generations. Setting the value to 5 will result in ""
+  +""a report being printed every 5 generations."";
+  }","/**
+  * Returns the tip text for this property
+  * @return tip text for this property suitable for
+  * displaying in the explorer/experimenter gui
+  */"
+28,"public String thresholdTipText() { return ""Repeat xval if stdev of mean exceeds this value.""; }",returns the tip text for this property,returns the thresholdtiptext,returns the } string for this component,returns the string that is used to display the text of the text,Focusing Only on Method Name ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,Missing Non-Critical Information,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,,,,Focusing Only on Method Name ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,"public String thresholdTipText() {
+  return ""Repeat xval if stdev of mean exceeds this value."";
+  }","/**
+  * Returns the tip text for this property
+  * @return tip text for this property suitable for
+  * displaying in the explorer/experimenter gui
+  */"
+29,"public String toString() { StringBuffer temp = new StringBuffer(); temp.append(""\n FarthestFirst\n==============\n""); temp.append(""\nCluster centroids:\n""); for (int i = 0; i < m_NumClusters; i++) { temp.append(""\nCluster ""+i+""\n\t""); for (int j = 0; j < m_ClusterCentroids.numAttributes(); j++) { if (m_ClusterCentroids.attribute(j).isNominal()) { temp.append("" ""+m_ClusterCentroids.attribute(j). value((int)m_ClusterCentroids.instance(i).value(j))); } else { temp.append("" ""+m_ClusterCentroids.instance(i).value(j)); } } } temp.append(""\n\n""); return temp.toString(); }",return a string describing this clusterer,returns a string representation of this cluster,print the cluster list,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Consistent with Specific Info ,Partial Incorrect Information,0,Consistent with Specific Info ,Partial Incorrect Information,0,,,,Consistent with Specific Info ,Partial Incorrect Information,0,"public String toString() {
+  StringBuffer temp = new StringBuffer();
+
+  temp.append(""\n FarthestFirst\n==============\n"");
+
+  temp.append(""\nCluster centroids:\n"");
+  for (int i = 0; i < m_NumClusters; i++) {
+  temp.append(""\nCluster ""+i+""\n\t"");
+  for (int j = 0; j < m_ClusterCentroids.numAttributes(); j++) {
+if (m_ClusterCentroids.attribute(j).isNominal()) {
+  temp.append("" ""+m_ClusterCentroids.attribute(j).
+  value((int)m_ClusterCentroids.instance(i).value(j)));
+} else {
+  temp.append("" ""+m_ClusterCentroids.instance(i).value(j));
+}
+  }
+  }
+  temp.append(""\n\n"");
+  return temp.toString();
+  }","/**
+  * return a string describing this clusterer
+  *
+  * @return a description of the clusterer as a string
+  */"
+30,"private void setClassValue(int index, int classVal) throws Exception { if (m_trainingData == null) { throw new Exception(""No training data set (BoundaryPanel)""); } if (classVal < 0 || classVal > m_trainingData.classAttribute().numValues()) { throw new Exception(""Class value out of range (BoundaryPanel)""); } m_rgbClassValues[index] = classVal; }",set a class value for a particular colour (rgb),set the training data value,get class value,sets the class value for the given var,Missing Critical Information,Missing Critical Information,Incorrect Identifier/Attribute,Missing Critical Information,Focusing Only on Method Name ,Incorrect Identifier/Attribute,,,,Missing Critical Information,Missing Critical Information,Incorrect Identifier/Attribute,"private void setClassValue(int index, int classVal) throws Exception {
+  if (m_trainingData == null) {
+  throw new Exception(""No training data set (BoundaryPanel)"");
+  }
+  if (classVal < 0 || 
+classVal > m_trainingData.classAttribute().numValues()) {
+  throw new Exception(""Class value out of range (BoundaryPanel)"");
+  }
+  m_rgbClassValues[index] = classVal;
+  }","/**
+  * Set a class value for a particular colour (RGB)
+  *
+  * @param index the colour - 0 = red, 1 = green, 2 = blue
+  * @param classVal the class value index to associate with the colour
+  * @exception Exception if an error occurs
+  */"
+31,public void setAnimated() { m_visualLabel.setIcon(m_animatedIcon); },set the animated version of the icon,sets the animated icon,sets the background image,sets the current var to the current label,Consistent with Specific Info ,Algorithmically Incorrect,Incorrect Identifier/Attribute,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,"public void setAnimated() {
+  m_visualLabel.setIcon(m_animatedIcon);
+  }","/**
+  * Set the animated version of the icon
+  *
+  */"
+32,public void setdisplayconnectors(boolean dc) { m_displayconnectors = dc; repaint(); },turn onoff the connector points,sets the displayconnectors,sets whether the panel should be displayed,sets the display to display,Consistent but Missing Specific Info,Consistent with Specific Info ,Different Meaning,Consistent but Missing Specific Info,Consistent with Specific Info ,Incorrect Identifier/Attribute,,,,Consistent but Missing Specific Info,Consistent with Specific Info ,Incorrect Identifier/Attribute,"public void setDisplayConnectors(boolean dc) {
+  //  m_visualHolder.setDisplayConnectors(dc);
+  m_displayConnectors = dc;
+  repaint();
+  }","/**
+  * Turn on/off the connector points
+  *
+  * @param dc a <code>boolean</code> value
+  */"
+33,public void addRepaintNotify(Component c) { m_Repainters.addElement(c); },adds a component that will need to be repainted if the user changes the colour of a label,adds a component to be repainted,adds a } to the },###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Consistent with Specific Info ,Incorrect Identifier/Attribute,0,Consistent with Specific Info ,Incorrect Identifier/Attribute,0,,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,0,"public void addRepaintNotify(Component c) {
+  m_Repainters.addElement(c);
+  }","/**
+  * Adds a component that will need to be repainted if the user
+  * changes the colour of a label.
+  * @param c the component to be repainted
+  */"
+34,public void setExperiment(Experiment exp) { m_Exp = exp; m_AddBut.setEnabled(true); m_List.setModel(m_Exp.getDatasets()); if (m_Exp.getDatasets().size() > 0) { m_DeleteBut.setEnabled(true); } },tells the panel to act on a new experiment,sets the experiment,sets the list of cells in the order they were added,sets the var of the,Missing Critical Information,Consistent but Missing Specific Info,Incomplete Sentence,Focusing Only on Method Name ,Consistent but Missing Specific Info,Incomplete Sentence,,,,Missing Critical Information,Consistent but Missing Specific Info,Incomplete Sentence,"public void setExperiment(Experiment exp) {
+
+  m_Exp = exp;
+  m_AddBut.setEnabled(true);
+  m_List.setModel(m_Exp.getDatasets());
+  if (m_Exp.getDatasets().size() > 0) {
+  m_DeleteBut.setEnabled(true);
+  }
+  }","/**
+  * Tells the panel to act on a new experiment.
+  *
+  * @param exp a value of type 'Experiment'
+  */"
+35,"public void setOptions(String[] options) throws Exception { String classifierString = Utils.getOption('B', options); if (classifierString.length() == 0) { throw new Exception(""A classifier must be specified"" + "" with the -B option.""); } String [] classifierSpec = Utils.splitOptions(classifierString); if (classifierSpec.length == 0) { throw new Exception(""Invalid classifier specification string""); } String classifierName = classifierSpec[0]; classifierSpec[0] = """"; System.out.println(""Classifier name: "" + classifierName + ""\nClassifier parameters: "" + weka.classifiers.sparse.IBkMetric.concatStringArray(classifierSpec)); setClassifier(Classifier.forName(classifierName, classifierSpec)); }",parses a given list of options valid options are: -b classifierstring,sets the options,sets the options for this schema,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,Missing Critical Information,Missing Critical Information,0,Focusing Only on Method Name ,Missing Critical Information,0,,,,Missing Critical Information,Missing Critical Information,0,"public void setOptions(String[] options) throws Exception {
+  String classifierString = Utils.getOption('B', options);
+  if (classifierString.length() == 0) {
+  throw new Exception(""A classifier must be specified""
+  + "" with the -B option."");
+  }
+  String [] classifierSpec = Utils.splitOptions(classifierString);
+  if (classifierSpec.length == 0) {
+  throw new Exception(""Invalid classifier specification string"");
+  }
+  String classifierName = classifierSpec[0];
+  classifierSpec[0] = """";
+  System.out.println(""Classifier name: "" + classifierName + ""\nClassifier parameters: "" + weka.classifiers.sparse.IBkMetric.concatStringArray(classifierSpec));
+  setClassifier(Classifier.forName(classifierName, classifierSpec));
+  }","/**
+  * Parses a given list of options. Valid options are:<p>
+  *
+  * -B classifierstring
+  */"
+36,"public void deleteAttributeAt(int position) { if ((position < 0) || (position >= m_Attributes.size())) { throw new IllegalArgumentException(""Index out of range""); } if (position == m_ClassIndex) { throw new IllegalArgumentException(""Can't delete class attribute""); } freshAttributeInfo(); if (m_ClassIndex > position) { m_ClassIndex--; } m_Attributes.removeElementAt(position); for (int i = position; i < m_Attributes.size(); i++) { Attribute current = (Attribute)m_Attributes.elementAt(i); current.setIndex(current.index() - 1); } for (int i = 0; i < numInstances(); i++) { instance(i).forceDeleteAttributeAt(position); } }",deletes an attribute at the given position (0 to numattributes() - 1) a deep copy of the attribute information is performed before the attribute is deleted,deletes the attribute at the specified position,deletes the attribute at the given position,removes the attribute at the given index,Missing Non-Critical Information,Missing Non-Critical Information,Missing Non-Critical Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,"public void deleteAttributeAt(int position) {
+
+  if ((position < 0) || (position >= m_Attributes.size())) {
+  throw new IllegalArgumentException(""Index out of range"");
+  }
+  if (position == m_ClassIndex) {
+  throw new IllegalArgumentException(""Can't delete class attribute"");
+  }
+  freshAttributeInfo();
+  if (m_ClassIndex > position) {
+  m_ClassIndex--;
+  }
+  m_Attributes.removeElementAt(position);
+  for (int i = position; i < m_Attributes.size(); i++) {
+  Attribute current = (Attribute)m_Attributes.elementAt(i);
+  current.setIndex(current.index() - 1);
+  }
+  for (int i = 0; i < numInstances(); i++) {
+  instance(i).forceDeleteAttributeAt(position); 
+  }
+  }","/**
+  * Deletes an attribute at the given position 
+  * (0 to numAttributes() - 1). A deep copy of the attribute
+  * information is performed before the attribute is deleted.
+  *
+  * @param pos the attribute's position
+  * @exception IllegalArgumentException if the given index is out of range or the
+  * class attribute is being deleted
+  */"
+37,"public String rawOutputTipText() { return ""Save raw output (useful for debugging). If set, then output is "" +""sent to the destination specified by outputFile""; }",returns the tip text for this property,description of the method,returns the text of the raw output,returns a string representation of the output output,Focusing Only on Method Name ,Consistent with Specific Info ,Consistent but Missing Specific Info,Focusing Only on Method Name ,Partial Incorrect Information,Incorrect Identifier/Attribute,,,,Focusing Only on Method Name ,Consistent with Specific Info ,Consistent but Missing Specific Info,"public String rawOutputTipText() {
+  return ""Save raw output (useful for debugging). If set, then output is ""
+  +""sent to the destination specified by outputFile"";
+  }","/**
+  * Returns the tip text for this property
+  * @return tip text for this property suitable for
+  * displaying in the explorer/experimenter gui
+  */"
+38,"public String numRulesTipText() { return ""Number of rules to find.""; }",returns the tip text for this property,gets the numrulestiptext attribute of the appletlocale object,returns the number of labels in the rule set,returns the text of the text of the current text,Unnecessary Incorrect Information,Semantically Unrelated to Code,Repetition,Unnecessary Incorrect Information,Semantically Unrelated to Code,Repetition,,,,Unnecessary Incorrect Information,Semantically Unrelated to Code,Repetition,"public String numRulesTipText() {
+  return ""Number of rules to find."";
+  }","/**
+  * Returns the tip text for this property
+  * @return tip text for this property suitable for
+  * displaying in the explorer/experimenter gui
+  */"
+39,public void setAdvanceDataSetFirst(boolean newAdvanceDataSetFirst) { m_AdvanceDataSetFirst = newAdvanceDataSetFirst; },set the value of m_advancedatasetfirst,sets the advanced dataset first,set the } value,sets the first row of the first row,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Repetition,Consistent with Specific Info ,Incorrect Identifier/Attribute,Semantically Unrelated to Code,,,,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Semantically Unrelated to Code,"public void setAdvanceDataSetFirst(boolean newAdvanceDataSetFirst) {
+  
+  m_AdvanceDataSetFirst = newAdvanceDataSetFirst;
+  }","/**
+  * Set the value of m_AdvanceDataSetFirst.
+  *
+  * @param newm_AdvanceDataSetFirst Value to assign to m_AdvanceRunFirst.
+  */"
+40,"private String testPrologComparisonString() { Attribute att = m_Dataset.attribute(m_AttIndex); if (att.isNumeric()) { return ((m_Not ? "">= "" : ""< "") + Utils.doubleToString(m_Split,3)); } else { if (att.numValues() != 2) return ((m_Not ? ""!= "" : ""= "") + att.value((int)m_Split)); else return (""= "" + (m_Not ? att.value((int)m_Split == 0 ? 1 : 0) : att.value((int)m_Split))); } }","gives a string representation of the test in prolog notation, starting from the comparison symbol",test the comparison string,test the prolog of a string,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,,,,Missing Non-Critical Information,Missing Non-Critical Information,0,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0,Missing Non-Critical Information,Consistent but Missing Specific Info,0,"private String testPrologComparisonString() {
+  Attribute att = m_Dataset.attribute(m_AttIndex);
+  if (att.isNumeric()) {
+  return ((m_Not ? "">= "" : ""< "") + Utils.doubleToString(m_Split,3));
+  }
+  else {
+  if (att.numValues() != 2) 
+  return ((m_Not ? ""!= "" : ""= "") + att.value((int)m_Split));
+  else return (""= "" 
+  + (m_Not ? att.value((int)m_Split == 0 ? 1 : 0) 
+  : att.value((int)m_Split)));
+  }
+  }","/**
+  * Gives a string representation of the test in Prolog notation, starting
+  * from the comparison symbol.
+  *
+  * @return a string representing the test in Prolog notation
+  */"
+41,public DoubleVector dividedBy ( DoubleVector v ) { return copy().dividedByEquals( v ); },divided by another doublevector element by element,returns the result of dividing this vector by v,expvector divided product,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,,,,Consistent with Specific Info ,Missing Identifier,0,Consistent with Specific Info ,Consistent but Missing Specific Info,0,Consistent with Specific Info ,Missing Identifier,0,"public DoubleVector  dividedBy ( DoubleVector v ) {
+  return copy().dividedByEquals( v );
+  }","/** 
+  *  Divided by another DoubleVector element by element
+  *  @param v the second DoubleVector
+  */"
+42,public int getClassIndex() { return m_ClassIndex + 1; },get the index (starting from 1) of the attribute used as the class,returns the class index,get the constant pool index of the class that this class belongs to,returns the index of the constant pool index,,,,Consistent with Specific Info ,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent but Missing Specific Info,Consistent but Missing Specific Info,"public int getClassIndex() {
+
+  return m_ClassIndex + 1;
+  }","/**
+  * Get the index (starting from 1) of the attribute used as the class.
+  *
+  * @return the index of the class attribute
+  */"
+43,"public String classifierTipText() { return ""the desired base learner for the ensemble.""; }",returns the tip text for this property,returns the classifier text,returns the text for the classifier,returns the text of the text,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,"public String classifierTipText() {
+  return ""the desired base learner for the ensemble."";
+  }","/**
+  * Returns the tip text for this property
+  * @return tip text for this property suitable for
+  * displaying in the explorer/experimenter gui
+b  */"
+44,public double getRandomWidthFactor() { return m_RandomWidthFactor; },gets the multiplier when generating random codes will generate numclasses m_randomwidthfactor codes,returns the random width factor,returns the random width factor,returns the factor,,,,Focusing Only on Method Name ,Focusing Only on Method Name ,Missing Critical Information,Focusing Only on Method Name ,Focusing Only on Method Name ,Missing Identifier,Focusing Only on Method Name ,Focusing Only on Method Name ,Missing Identifier,"public double getRandomWidthFactor() {
+
+  return m_RandomWidthFactor;
+  }","/**
+  * Gets the multiplier when generating random codes. Will generate
+  * numClasses * m_RandomWidthFactor codes.
+  *
+  * @return the width multiplier
+  */"
+45,"public double getAttributeMax(int index) throws Exception { if (m_Max == null) { throw new Exception(""Maximum value for attribute not available!""); } return m_Max[index]; }",get an attributes maximum observed value,returns the maximum value of an attribute,returns the minimum value of an attribute,returns the maximum value for the specified var for the given var,,,,Consistent with Specific Info ,Algorithmically Incorrect,Repetition,Consistent with Specific Info ,Different Meaning,Incorrect Identifier/Attribute,Consistent with Specific Info ,Algorithmically Incorrect,Incorrect Identifier/Attribute,"public double getAttributeMax(int index) throws Exception {
+
+if (m_Max == null) {
+  throw new Exception(""Maximum value for attribute not available!"");
+}
+return m_Max[index];
+  }","/**
+  * Get an attributes maximum observed value
+  */"
+46,"public String graph() throws Exception { StringBuffer text = new StringBuffer(); text.append(""digraph M5Tree {\n""); Rule temp = (Rule)m_ruleSet.elementAt(0); temp.m_topOfTree.graph(text); text.append(""}\n""); return text.toString(); }",return a dot style string describing the tree,print out the graph,converts a set of rules into string,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,,,,Partial Incorrect Information,Missing Critical Information,0,Partial Incorrect Information,Consistent but Missing Specific Info,0,Partial Incorrect Information,Missing Critical Information,0,"public String graph() throws Exception {
+  StringBuffer text = new StringBuffer();
+  
+  text.append(""digraph M5Tree {\n"");
+  Rule temp = (Rule)m_ruleSet.elementAt(0);
+  temp.m_topOfTree.graph(text);
+  text.append(""}\n"");
+  return text.toString();
+  }","/**
+  * Return a dot style String describing the tree.
+  *
+  * @return a <code>String</code> value
+  * @exception Exception if an error occurs
+  */"
+47,private int numParameters() { return m_numParameters; },get the number of parameters in the model at this node,returns the number of parameters,returns the number of parameters,returns the number of parameters,,,,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,"private int numParameters() {
+  return m_numParameters;
+  }","/**
+  * Get the number of parameters in the model at this node
+  *
+  * @return the number of parameters in the model at this node
+  */"
+48,public void settempdirpath(string tempdirpath) { m_tempdirpath = tempdirpath; },set the path for the temporary files,sets the tempdirpath,sets the temporary dir path,sets the directory path to the directory,,,,Consistent with Specific Info ,Consistent with Specific Info ,Repetition,Consistent with Specific Info ,Consistent with Specific Info ,Missing Identifier,Consistent with Specific Info ,Consistent with Specific Info ,Missing Identifier,"public void setTempDirPath(String tempDirPath) {
+  m_tempDirPath = tempDirPath;
+  }","/** Set the path for the temporary files
+  * @param tempDirPath a full path to the temporary directory
+  */"
+49,public void printallmodels() { if (m_isleaf) { system.out.println(m_nodemodel.tostring()); } else { system.out.println(m_nodemodel.tostring()); m_left.printallmodels(); m_right.printallmodels(); } },print all the linear models at the learf (debugging purposes),prints all the models,prints all the models in the console,prints all the nodes in the model,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Partial Incorrect Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Partial Incorrect Information,"public void printAllModels() {
+  if (m_isLeaf) {
+  System.out.println(m_nodeModel.toString());
+  } else {
+  System.out.println(m_nodeModel.toString());
+  m_left.printAllModels();
+  m_right.printAllModels();
+  } 
+  }","/**
+  * Print all the linear models at the learf (debugging purposes)
+  */"

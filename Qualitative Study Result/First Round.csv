@@ -1,0 +1,1689 @@
+,code,docstring,codeBERT Predictions,NeuralCodeSum Predictions,code2seq Predictions,Raw_Methods,Ground_Truth,Comments - CodeBERT(Person1),Comments - NeuralCodeSum (Person1),Comments - Code2Seq (Person1),Comments - CodeBERT(Person2),Comments - NeuralCodeSum (Person2),Comments - Code2Seq (Person2),Comments - CodeBERT(Person3),Comments - NeuralCodeSum (Person3),Comments - Code2Seq (Person3),CodeBERT (Final Categories),NeuralCodeSum (Final Categories),Code2Seq (Final Categories)
+0,"public void testControlCharacterReplacement4() { CharacterReplacer cReplacer; String aInput, aResult; try { aInput = ""This is a test, 123.""; cReplacer = Perl5Parser.makeReplacer( ""/\\x20-\\x2F\\xA0\\xAF/\\cG/s"" ); aResult = cReplacer.doReplacement( aInput ); assertEquals( ""This\007is\007a\007test\007123\007"", aResult ); assertEquals( 6, cReplacer.getMatches() ); } catch( CharacterParseException eParse ) { fail( eParse.toString() ); } }",test control character handling control characters in perl are escaped using the \cx escape sequence this uses the perl5parse utility class,test a control character replacement,test } method,test method for } has no character character,"public void testControlCharacterReplacement4() {
+  CharacterReplacer cReplacer;
+  String aInput, aResult;
+ 
+
+  try {
+  aInput = ""This is a test, 123."";
+  cReplacer = Perl5Parser.makeReplacer( ""/\\x20-\\x2F\\xA0\\xAF/\\cG/s"" );
+  aResult = cReplacer.doReplacement( aInput );
+ 
+
+  assertEquals( ""This\007is\007a\007test\007123\007"", aResult );
+  assertEquals( 6, cReplacer.getMatches() );
+ 
+
+  } catch( CharacterParseException eParse ) {
+  fail( eParse.toString() );
+  }
+  }","/**
+  * Test control character handling. Control characters in Perl are
+  * escaped using the \cx escape sequence. This uses the Perl5Parse
+  * utility class.
+  */",Missing Critical Information,Missing Attribute Specification,Repetition,,,,Missing Syntax Information,Missing Syntax Information,Repetition,Missing Syntax Information,Missing Attribute Specification,Repetition
+1,public boolean isFirstPage() { return (index <= 1); },is the current page the first page?,returns true if this page is the first page,returns true if the first page is the first page,returns whether the first page is the first page,"public boolean isFirstPage() {
+  return (index <= 1);
+  }","/** Is the current page the first page?
+  * @return True if the current page is the first page
+  */",Consistent with Specific Info ,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,,,,Partial Incorrect Information,Repetition,Repetition,Consistent with Specific Info ,Repetition,Repetition
+2,"public void testDouble() throws Exception { DoubleObj x = new DoubleObj(1.23456789); String json = trans.serializeToJsonString(x); assertEquals(""{\""value\"":1.23456789}"", json); DoubleObj y = (DoubleObj) trans.deserializeFromJsonString(json, DoubleObj.class); assertEquals(x, y); Map m = (Map) trans.deserializeFromJsonString(json); assertEquals(new Double(1.23456789), m.get(""value"")); }",test (de)serialization of double,test method for },tests the conversion of a double as a double,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testDouble() throws Exception {
+  DoubleObj x = new DoubleObj(1.23456789);
+  String json = trans.serializeToJsonString(x);
+  assertEquals(""{\""value\"":1.23456789}"", json);
+  
+  DoubleObj y = (DoubleObj) trans.deserializeFromJsonString(json, DoubleObj.class);
+  assertEquals(x, y);
+ 
+
+  Map m = (Map) trans.deserializeFromJsonString(json);
+  assertEquals(new Double(1.23456789), m.get(""value""));
+  }","/**
+  * Test (de)serialization of double.
+  * @throws Exception If the test fails.
+  */",Missing Critical Information,Missing Critical Information,0,,,,Missing Syntax Information,Repetition,0,Missing Syntax Information,Repetition,0
+3,"public void testBoolean() throws Exception { BooleanObj x = new BooleanObj(true); String value = ""<value xsi:type=\""xsd:boolean\"">true</value>""; String serial = trans.serializeToString(x); checkSerializedString(""testBoolean"", serial, value); BooleanObj y = (BooleanObj) trans.deserializeFromString(serial); assertEquals(""wrong deserializer"", x, y); }",test (de)serialization of boolean,test serialization of a boolean,test method for },###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testBoolean() throws Exception {
+  BooleanObj x = new BooleanObj(true);
+  String value = ""<value xsi:type=\""xsd:boolean\"">true</value>"";
+  String serial = trans.serializeToString(x);
+  checkSerializedString(""testBoolean"", serial, value);
+  BooleanObj y = (BooleanObj) trans.deserializeFromString(serial);
+  assertEquals(""wrong deserializer"", x, y);
+  }","/**
+  * Test (de)serialization of boolean.
+  * @throws Exception If the test failes.
+  */",Different Meaning,Missing Critical Information,0,,,,Partial Incorrect Information,Missing Syntax Information,0,Partial Incorrect Information,Missing Syntax Information,0
+4,"public void testReferences() throws Exception { trans.setProperty(PropertyKeys.OMIT_ID, ""no""); RefObj x = new RefObj(new DoubleObj(1.23)); String serial = trans.serializeToString(x); RefObj y = (RefObj) trans.deserializeFromString(serial); assertTrue( ""Members of RefObj doesn't point to the same instance."", y.getA() == y.getB()); }",test (de)serialization of objects with references,a unit test for junit,test a reference to a reference,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testReferences() throws Exception {
+  trans.setProperty(PropertyKeys.OMIT_ID, ""no"");
+  RefObj x = new RefObj(new DoubleObj(1.23));
+  String serial = trans.serializeToString(x);
+  RefObj y = (RefObj) trans.deserializeFromString(serial);
+  assertTrue(
+  ""Members of RefObj doesn't point to the same instance."",
+  y.getA() == y.getB());
+  }","/**
+  * Test (de)serialization of objects with references.
+  * @throws Exception If the test failes.
+  */",Missing Critical Information,Missing Attribute Specification,0,,,,Missing Prog. Language Information ,Repetition,0,Missing Prog. Language Information ,Missing Attribute Specification,0
+5,"protected Font getBaseSystemFont() { return new FontUIResource(""Lucida Grande"", Font.PLAIN, 13); }","returns the base font for which system fonts are derived this is lucida grande, plain, 13",returns the base system font,returns the base system font,returns the base font used for this component,"protected Font getBaseSystemFont() {
+  return new FontUIResource(""Lucida Grande"", Font.PLAIN, 13);
+  }","/**
+  * Returns the base font for which system fonts are derived.
+  * This is Lucida Grande, Plain, 13.
+  */",Missing Critical Information,Missing Critical Information,Missing Critical Information,,,,Missing Non-Critical Information,Missing Non-Critical Information,Missing Non-Critical Information,Missing Critical Information,Missing Non-Critical Information,Missing Critical Information
+6,private void installSubcomponents() { createActions(); createButtons(); add(iconifyButton); add(toggleButton); add(closeButton); },adds any sub-components contained in the quaquatitlepane,installs the subcomponents,installs the necessary properties for the button,installs the buttons and the buttons and buttons and button and button,"private void installSubcomponents() {
+  //if (getWindowDecorationStyle() == JRootPane.FRAME) {
+  createActions();
+  createButtons();
+  add(iconifyButton);
+  add(toggleButton);
+  add(closeButton);
+  //}
+  }","/**
+  * Adds any sub-Components contained in the <code>QuaquaTitlePane</code>.
+  */",Missing Critical Information,Improves upon Semantic Meaning ,Repetition,,,,Consistent but Missing Specific Info,Missing Non-Critical Information,Repetition,Missing Critical Information,Missing Non-Critical Information,Repetition
+7,public LogicalExpression getRhs() throws IOException { return (LogicalExpression)plan.getSuccessors(this).get(2); },get the right hand side of this expression,returns the rhs expression,returns an expression that is used to represent the logical logical expression of this expression if the expression is an expression or if the expression is not a } then the expression is returned,returns the expression of the expression,"public LogicalExpression getRhs() throws IOException {
+  return (LogicalExpression)plan.getSuccessors(this).get(2);
+  }","/**
+  * Get the right hand side of this expression.
+  * @return expression on the right hand side
+  * @throws IOException 
+  */",Consistent but Missing Specific Info,Repetition,Repetition,,,,Consistent but Missing Specific Info,Repetition,Repetition,Consistent but Missing Specific Info,Repetition,Repetition
+8,public boolean isCreateIds() { return createIds; },returns true if the model automatically creates ids and resolves id collisions,returns the createids,returns the },returns whether the is the default id,"public boolean isCreateIds() {
+  return createIds;
+  }","/**
+  * Returns true if the model automatically creates Ids and resolves Id
+  * collisions.
+  *
+  * @return Returns true if the model creates Ids.
+  */",Missing task elaboration,Incorrect Identifier/Attribute,Missing Attribute Specification,,,,Partial Incorrect Information,Missing Syntax Information,Semantically Unrelated to Code,Partial Incorrect Information,Missing Syntax Information,Missing Attribute Specification
+9,public TagLookupRequest withResponseGroup(String... values) { for (String value: values) { getResponseGroup().add(value); } return this; },sets the value of the responsegroup property,sets the response group,lookup the value of a lookup,returns a new with the given var,"public TagLookupRequest withResponseGroup(String... values) {
+  for (String value: values) {
+  getResponseGroup().add(value);
+  }
+  return this;
+  }","/**
+  * Sets the value of the ResponseGroup property.
+  * 
+  * @param values
+  * @return
+  *  this instance
+  */",Missing Attribute Specification,Algorithmically Incorrect,Missing Identifier,,,,Consistent but Missing Specific Info,Repetition,Semantically Unrelated to Code,Consistent but Missing Specific Info,Algorithmically Incorrect,Missing Identifier
+10,public MetaData withKey(String value) { setKey(value); return this; },sets the value of the key property,sets the key,sets the metadata for this property,returns a new object with the given var,"public MetaData withKey(String value) {
+  setKey(value);
+  return this;
+  }","/**
+  * Sets the value of the Key property.
+  * 
+  * @param value
+  * @return
+  *  this instance
+  */",Missing Non-Critical Information,Missing Attribute Specification,Missing Attribute Specification,,,,Missing Non-Critical Information,Missing Critical Information,Missing Identifier,Missing Non-Critical Information,Missing Attribute Specification,Missing Attribute Specification
+11,public AvailableParameters withParameter(String... values) { for (String value: values) { getParameter().add(value); } return this; },sets the value of the parameter property,sets the parameters,returns a new instance with the specified values,returns a parameter with the given parameter and the parameter value,"public AvailableParameters withParameter(String... values) {
+  for (String value: values) {
+  getParameter().add(value);
+  }
+  return this;
+  }","/**
+  * Sets the value of the Parameter property.
+  * 
+  * @param values
+  * @return
+  *  this instance
+  */",Missing Attribute Specification,Missing Attribute Specification,Missing Attribute Specification,,,,Missing Identifier,Missing Identifier,Missing Non-Critical Information,Missing Identifier,Missing Attribute Specification,Missing Attribute Specification
+12,public Information withOperationInformation(OperationInformation... values) { for (OperationInformation value: values) { getOperationInformation().add(value); } return this; },sets the value of the operationinformation property,sets the operationinformation,"returns the information if the operation is not supported in this interface, the method returns a new information instance",returns an instance of the information about the information,"public Information withOperationInformation(OperationInformation... values) {
+  for (OperationInformation value: values) {
+  getOperationInformation().add(value);
+  }
+  return this;
+  }","/**
+  * Sets the value of the OperationInformation property.
+  * 
+  * @param values
+  * @return
+  *  this instance
+  */",Missing Attribute Specification,Partial Incorrect Information,Missing Attribute Specification,,,,Missing Non-Critical Information,Partial Incorrect Information,Repetition,Missing Attribute Specification,Partial Incorrect Information,Repetition
+13,public PromotionEligibilityRequirement withQuantity(Integer value) { setQuantity(value); return this; },sets the value of the quantity property,returns a quantity,sets the value of this property any previous animations are stopped,sets the var,"public PromotionEligibilityRequirement withQuantity(Integer value) {
+  setQuantity(value);
+  return this;
+  }","/**
+  * Sets the value of the Quantity property.
+  * 
+  * @param value
+  * @return
+  *  this instance
+  */",Missing task elaboration,Unnecessary Incorrect Information,Missing Attribute Specification,Different Meaning,Different Meaning,Missing Formatting,,,,Different Meaning,Unnecessary Incorrect Information,Missing Attribute Specification
+14,public void setSplitType(String splitType) { this.splitType = splitType; },sets the split type of the gateway the split type should only be set if the gateway is an exclusive decision gateway,sets the split type,sets the type of split,sets the var,"public void setSplitType(String splitType) {
+  this.splitType = splitType;
+  }","/**
+   * Sets the split type of the gateway. The split type should only
+   * be set if the gateway is an exclusive decision gateway.
+   * 
+   * @param splitType The new split type of the gateway (""XOR"" or ""XOREVENT"").
+   */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Attribute Specification,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Formatting,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Attribute Specification
+15,"private int countListsWithGateway(Map<StartEvent, List<Gateway>> map, Gateway gateway) { int counter = 0; for (Iterator<List<Gateway>> it = map.values().iterator(); it.hasNext();) { List<Gateway> gateways = it.next(); if (gateways.contains(gateway)) { counter++; } } return counter; }",counts the lists contained in the map that contain the given gateway,counts the lists with the given gateway,"counts number of event, with given }",###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private int countListsWithGateway(Map<StartEvent, List<Gateway>> map, Gateway gateway) {
+  int counter = 0;
+  for (Iterator<List<Gateway>> it = map.values().iterator(); it.hasNext();) {
+  List<Gateway> gateways = it.next();
+  if (gateways.contains(gateway)) {
+  counter++;
+  }
+  }
+  return counter;
+  }","/**
+   * Counts the lists contained in the map that contain the given gateway.
+   * 
+   * @param map  The map that has lists as values.
+   * @param gateway The gateway that may be contained in the lists.
+   * 
+   * @return The number of lists in the map, the gateway is contained in.
+   */",Missing Critical Information,Incorrect Identifier/Attribute,0,Missing Non-Critical Information,Missing Web-related information,0,,,,Missing Critical Information,Missing Web-related information,0
+16,public Boolean isIsFragile() { return isFragile; },gets the value of the isfragile property,returns the isfragile,gets the } value for this },returns whether this is a,"public Boolean isIsFragile() {
+  return isFragile;
+  }","/**
+  * Gets the value of the isFragile property.
+  * 
+  * @return
+  *  possible object is
+  *  {@link Boolean }
+  * 
+  */",Missing task elaboration,Incorrect Identifier/Attribute,Incomplete Sentence,Missing task elaboration,Failed to mention identifiers,Partial Incorrect Information,,,,Missing task elaboration,Failed to mention identifiers,Incomplete Sentence
+17,public Element getElement(int index) { return elements.get(index); },gets the element with the associated index,returns the element at the given index,gets the element at the specified index,returns the element at the given var,"public Element getElement(int index) {
+  return elements.get(index);
+  }","/**
+   * Gets the element with the associated index.
+   * 
+   * @param index
+   * the position of the element in the sequence
+   * @return the element that is at the given position in the sequence
+   */",Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,Consistent with Specific Info ,Consistent with Specific Info ,Failed to mention identifiers,,,,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute
+18,protected boolean getBoundsVolatile() { return true; },"since this node's bounds are always dependent on its target, it is volatile",gets the bounds volatile attribute,returns true if this node is a bounds of the bounds of the node,returns true if this object is a bounds,"protected boolean getBoundsVolatile() {
+  return true;
+  }","/**
+  * Since this node's bounds are always dependent on its target, it is
+  * volatile.
+  * 
+  * @return true since sticky handle manager's bounds are completely
+  *  dependent on its children
+  */",Algorithmically Incorrect,Repetition,Algorithmically Incorrect,Consistent but Missing Specific Info,Repetition,Partial Incorrect Information,,,,Consistent but Missing Specific Info,Algorithmically Incorrect,Consistent but Missing Specific Info
+19,"public PNode removeChild(final int index) { /* * NOTE: This must be the only super.removeChild call that we make in * our entire implementation, because all PNode.removeChild methods are * implemented in terms of this one. Calling other variants of * super.removeChild will incorrectly invoke our overrides, resulting in * StackOverflowException. */ final PNode node = super.removeChild(index); removeProxyComponent(node); return node; }",removes a node at a specified index,removes a child from this node,remove the child of this node at the specified index,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public PNode removeChild(final int index) {
+  /*
+  * NOTE: This must be the only super.removeChild call that we make in
+  * our entire implementation, because all PNode.removeChild methods are
+  * implemented in terms of this one. Calling other variants of
+  * super.removeChild will incorrectly invoke our overrides, resulting in
+  * StackOverflowException.
+  */
+  final PNode node = super.removeChild(index);
+  removeProxyComponent(node);
+  return node;
+  }","/**
+  * Removes a node at a specified index.
+  * 
+  * @param index 0 based index of the child to be removed
+  */",Missing Attribute Specification,Consistent but Missing Specific Info,0,Missing Non-Critical Information,Unnecessary Incorrect Information,0,,,,Missing Non-Critical Information,Consistent but Missing Specific Info,0
+20,private ProxyComponent getComponentForNode(final PNode node) { ProxyComponent nodeComponent = null; final Component[] components = container.getComponents(); if (components != null) { for (int i = 0; i < components.length && nodeComponent == null; i++) { if (components[i] instanceof ProxyComponent) { final ProxyComponent n = (ProxyComponent) components[i]; if (n.getNode() == node) { nodeComponent = n; } } } } return nodeComponent; },finds the component that is serving as the proxy for a specific node returns null if not found,returns the component for the given node,returns the component that has the specified node,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private ProxyComponent getComponentForNode(final PNode node) {
+  ProxyComponent nodeComponent = null;
+  final Component[] components = container.getComponents();
+  if (components != null) {
+  for (int i = 0; i < components.length && nodeComponent == null; i++) {
+  if (components[i] instanceof ProxyComponent) {
+  final ProxyComponent n = (ProxyComponent) components[i];
+  if (n.getNode() == node) {
+  nodeComponent = n;
+  }
+  }
+  }
+  }
+  return nodeComponent;
+  }","/**
+  * Finds the component that is serving as the proxy for a specific node.
+  * Returns null if not found.
+  */",Missing Attribute Specification,Missing Attribute Specification,0,Missing Non-Critical Information,Consistent but Missing Specific Info,0,,,,Missing Attribute Specification,Consistent but Missing Specific Info,0
+21,"public boolean getMethod(OutputStream oStream) throws IOException { return getMethod(oStream, true); }",execute the get method for the given path,description of the method,returns whether the underlying stream implements the } interface,returns true if the var put is a,"public boolean getMethod(OutputStream oStream) throws IOException {
+  return getMethod(oStream, true);
+  }","/**
+  * Execute the GET method for the given path.
+  *
+  * @param oStream The Output Stream.
+  * @return true if the method is succeeded.
+  * @exception HttpException
+  * @exception IOException
+  */",Algorithmically Incorrect,Algorithmically Incorrect,Semantically Unrelated to Code,Focusing Only on Method Name ,Missing Identifier,Algorithmically Incorrect,,,,Focusing Only on Method Name ,Missing Identifier,Semantically Unrelated to Code
+22,public String getAdmin() { return admin; },gets the value of the admin property,returns the admin,returns the admin,returns whether this is a,"public String getAdmin() {
+  return admin;
+  }","/**
+  * Gets the value of the admin property.
+  * 
+  * @return
+  *  possible object is
+  *  {@link String }
+  * 
+  */",Missing Attribute Specification,Missing Attribute Specification,Incomplete Sentence,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incomplete Sentence,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incomplete Sentence
+23,public Reference getLocationRef() { return getResponse() == null ? null : getResponse().getLocationRef(); },returns the reference that the client should follow for redirections or resource creations,the default behavior of this method is to return getlocationreference() on the wrapped response object,returns the location of the connection,returns the location of the request,"public Reference getLocationRef() {
+  return getResponse() == null ? null : getResponse().getLocationRef();
+  }","/**
+  * Returns the reference that the client should follow for redirections or
+  * resource creations.
+  * 
+  * @return The redirection reference.
+  * @see Response#getLocationRef()
+  */",Consistent with Specific Info ,Incorrect Identifier/Attribute,Consistent but Missing Specific Info,Different Meaning,Missing Non-Critical Information,Missing Non-Critical Information,,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,Missing Non-Critical Information
+24,public ItemAttributes withRemovableStorage(String value) { setRemovableStorage(value); return this; },sets the value of the removablestorage property,sets the removed storage,sets the attribute values for this attribute,sets the var to the given var,"public ItemAttributes withRemovableStorage(String value) {
+  setRemovableStorage(value);
+  return this;
+  }","/**
+  * Sets the value of the RemovableStorage property.
+  * 
+  * @param value
+  * @return
+  *  this instance
+  */",Missing Attribute Specification,Missing Attribute Specification,Missing Attribute Specification,Consistent but Missing Specific Info,Failed to mention identifiers,Failed to mention identifiers,,,,Consistent but Missing Specific Info,Missing Attribute Specification,Missing Attribute Specification
+25,public ItemAttributes withTotalParallelPorts(BigInteger value) { setTotalParallelPorts(value); return this; },sets the value of the totalparallelports property,sets the total parallel ports,sets the total number of items in the range },returns the with the given var,"public ItemAttributes withTotalParallelPorts(BigInteger value) {
+  setTotalParallelPorts(value);
+  return this;
+  }","/**
+  * Sets the value of the TotalParallelPorts property.
+  * 
+  * @param value
+  * @return
+  *  this instance
+  */",Missing Attribute Specification,Algorithmically Incorrect,Semantically Unrelated to Code,Consistent but Missing Specific Info,Failed to mention identifiers,Failed to mention identifiers,,,,Consistent but Missing Specific Info,Failed to mention identifiers,Failed to mention identifiers
+26,public int size() { return bytes.length; },gets the number of bytes,returns the size of the byte array,returns the number of elements in this list,returns the number of bytes in this buffer,"public int size() {
+  return bytes.length;
+  }","/**
+  * Gets the number of bytes.
+  */",Consistent with Specific Info ,Algorithmically Incorrect,Consistent with Specific Info ,Unnecessary Incorrect Information,Failed to mention identifiers,Unnecessary Incorrect Information,,,,Consistent with Specific Info ,Failed to mention identifiers,Consistent with Specific Info 
+27,public void setMaxOpenFiles(final int maxOpenFiles) { this.maxOpenFiles = maxOpenFiles; },limit the number of file descriptors the library will open concurrently when flushing dirty pages from the cache,sets the max open files,sets the maximum number of open files to open,sets the maximum open files,"public void setMaxOpenFiles(final int maxOpenFiles) {
+  this.maxOpenFiles = maxOpenFiles;
+  }","/**
+  Limit the number of file descriptors the library will open concurrently
+  when flushing dirty pages from the cache.
+  <p>
+  @param maxOpenFiles
+  The maximum number of file descriptors that may be concurrently opened
+  by the library when flushing dirty pages from the cache.
+  **/",Missing task elaboration,Missing task elaboration,Missing task elaboration,Consistent but Missing Specific Info,Repetition,Consistent but Missing Specific Info,,,,Consistent but Missing Specific Info,Repetition,Consistent but Missing Specific Info
+28,"protected IQ errorMalformedStanza(IQ iq) { return createError(iq.getPacketID(), iq.getFrom(), getConnection().getUser(), 400, ""Bad Request""); }",send an error indicating that the stanza is malformed,error handling routine,check if the error is an ack packet,returns the error message for the given var,"protected IQ errorMalformedStanza(IQ iq) {
+  // FIXME: implement with the right message...
+  return createError(iq.getPacketID(), iq.getFrom(), getConnection().getUser(),
+  400, ""Bad Request"");
+  }","/**
+  * Send an error indicating that the stanza is malformed.
+  *
+  * @param iq
+  */",,,,Consistent but Missing Specific Info,Different Meaning,Failed to mention identifiers,Missing Critical Information,Partial Incorrect Information,Missing Identifier,Missing Critical Information,Partial Incorrect Information,Failed to mention identifiers
+29,public int first() { fLastRuleStatusIndex = 0; fLastStatusIndexValid = true; if (fText == null) { return BreakIterator.DONE; } fText.first(); return fText.getIndex(); },"sets the current iteration position to the beginning of the text (ie, the characteriterator's starting offset)",sets the index of the first character in the iteration,returns the index of the first character in the iteration,returns the first element in the list,"public int first() {
+  fLastRuleStatusIndex = 0;
+  fLastStatusIndexValid = true;
+  if (fText == null) {
+  return BreakIterator.DONE;
+  }
+  fText.first();
+  return fText.getIndex();
+  }","/**
+  * Sets the current iteration position to the beginning of the text.
+  * (i.e., the CharacterIterator's starting offset).
+  * @return The offset of the beginning of the text.
+  * @stable ICU 2.0
+  */",,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Critical Information,Partial Incorrect Information,Partial Incorrect Information,Partial Incorrect Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Critical Information
+30,public UnicodeSet addAll(Collection<?> source) { checkFrozen(); for (Object o : source) { add(o.toString()); } return this; },add the contents of the unicodeset (as strings) into a collection uses standard naming convention,adds all of the elements in the specified collection to this set,adds all of the elements in the given set to this set,adds all the var in the given var to this set,"public UnicodeSet addAll(Collection<?> source) {
+  checkFrozen();
+  for (Object o : source) {
+  add(o.toString());
+  }
+  return this;
+  }","/**
+  * Add the contents of the UnicodeSet (as strings) into a collection.
+  * Uses standard naming convention.
+  * @param source collection to add into
+  * @return a reference to this object
+  * @stable ICU 4.4
+  */",,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Failed to mention identifiers,Different Meaning,Algorithmically Incorrect,Missing Identifier,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Failed to mention identifiers
+31,public void reset() { text.setToStart(); currentIndex=nextIndex=0; clearBuffer(); },reset the index to the beginning of the text this is equivalent to setindexonly(startindex)),description of the method,resets the text to the beginning of the text,resets the current state to the next set of the next call to the next method and,"public void reset() {
+  text.setToStart();
+  currentIndex=nextIndex=0;
+  clearBuffer();
+  }","/**
+  * Reset the index to the beginning of the text.
+  * This is equivalent to setIndexOnly(startIndex)).
+  * @stable ICU 2.8
+  */",,,,Focusing Only on Method Name ,Consistent but Missing Specific Info,Different Meaning,Missing Prog. Language Information ,Algorithmically Incorrect,Repetition,Focusing Only on Method Name ,Algorithmically Incorrect,Repetition
+32,private int countQuestionMarks(String statement) { int count=0; for (char c: statement.toCharArray()) if (c=='?') count++; return count; },used to initialise the paramaters array to the correct size,counts the number of question marks,counts the number of questions in a specified statement,returns the number of questions in the given var,"private int countQuestionMarks(String statement) {
+  int count=0;
+  for (char c: statement.toCharArray())
+  if (c=='?')
+  count++;
+  return count;
+  }","/**
+  * Used to initialise the paramaters array to the correct size.
+  */",,,,Improves upon Semantic Meaning ,Missing Non-Critical Information,Failed to mention identifiers,Improves upon Semantic Meaning ,Improves upon Semantic Meaning ,Improves upon Semantic Meaning ,Improves upon Semantic Meaning ,Missing Non-Critical Information,Failed to mention identifiers
+33,"public String getPathInfo() { String path = getHttpServletRequest().getPathInfo(); if (path == null) return null; String clean = """"; try { clean = ESAPI.validator().getValidInput(""HTTP path: "" + path, path, ""HTTPPath"", 150, true); } catch (ValidationException e) { } return clean; }",returns the path info from the httpservletrequest after canonicalizing and filtering out any dangerous characters,get the path info,returns the path information,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public String getPathInfo() {
+  String path = getHttpServletRequest().getPathInfo();
+  if (path == null) return null;
+  String clean = """";
+  try {
+  clean = ESAPI.validator().getValidInput(""HTTP path: "" + path, path, ""HTTPPath"", 150, true);
+  } catch (ValidationException e) {
+  // already logged
+  }
+  return clean;
+  }","/**
+  * Returns the path info from the HttpServletRequest after canonicalizing
+  * and filtering out any dangerous characters.
+  * @return Returns any extra path information, appropriately scrubbed,
+  *  associated with the URL the client sent when it made this request.
+  */",,,,Missing Critical Information,Missing Critical Information,0,Missing Critical Information,Improves upon Semantic Meaning ,0,Missing Critical Information,Missing Critical Information,0
+34,"public void createCache(String configurationFile) { CacheFactory factory = new DefaultCacheFactory(); cache = factory.createCache(configurationFile, false); config = cache.getConfiguration(); cache.create(); cache.start(); }",factory method that creates the cache model delegate instance for this demo,create the cache,create a new cache file,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void createCache(String configurationFile) {
+  CacheFactory factory = new DefaultCacheFactory();
+  
+  cache = factory.createCache(configurationFile, false);
+   
+  config = cache.getConfiguration();
+  
+  //config.setClusterName(""Catalogo"");
+  
+  // Have to create and start cache before using it
+  cache.create();
+  cache.start();
+  }","/**
+   * Factory method that creates the cache model delegate instance for this
+   * demo
+   * 
+   * @return instance of CacheModelDelegate
+   * @throws Exception
+   */",,,,Missing Non-Critical Information,Missing Non-Critical Information,0,Missing Critical Information,Missing Non-Critical Information,0,Missing Critical Information,Missing Non-Critical Information,0
+35,public boolean isWindowDef() { return windowDef; },learns if the window was set,returns the windowdef,returns true if the window is },returns whether this is a window window,"public boolean isWindowDef() {
+  return windowDef;
+  }","/**
+  * Learns if the window was set
+  */",,,,Partial Incorrect Information,Missing Non-Critical Information,Repetition,Consistent but Missing Specific Info,Missing Syntax Information,Repetition,Consistent but Missing Specific Info,Missing Syntax Information,Repetition
+36,"public V remove(Object key) { V retval=get(key); if(send_message == true) { try { MethodCall call=new MethodCall(REMOVE, new Object[]{key}); disp.callRemoteMethods(null, call, update_mode, timeout); } catch(Exception e) { throw new RuntimeException(""remove("" + key + "") failed"", e); } } else { return _remove(key); } return retval; }",removes the key (and its corresponding value) from this map this method does nothing if the key is not in the map,removes the mapping for this key from this map if present,removes the mapping for the specified key from this bean,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public V remove(Object key) {
+  V retval=get(key);
+ 
+
+  if(send_message == true) {
+  try {
+  MethodCall call=new MethodCall(REMOVE, new Object[]{key});
+  disp.callRemoteMethods(null, call, update_mode, timeout);
+  }
+  catch(Exception e) {
+  throw new RuntimeException(""remove("" + key + "") failed"", e);
+  }
+  }
+  else {
+  return _remove(key);
+  }
+  return retval;
+  }","/**
+  * Removes the key (and its corresponding value) from this map.
+  * This method does nothing if the key is not in the map.
+  * @param key the key that needs to be removed
+  * @return the previous value associated with <tt>key</tt>, or
+  *  <tt>null</tt> if there was no mapping for <tt>key</tt>
+  * @throws NullPointerException if the specified key is null
+  */",,,,Consistent but Missing Specific Info,Missing Non-Critical Information,0,Consistent but Missing Specific Info,Missing Non-Critical Information,0,Consistent but Missing Specific Info,Missing Non-Critical Information,0
+37,public String getDescString() { return PGridMessage.DESC_INIT_RESP_STRING; },returns the representation string for a descriptor of a message,retrieve the desc,returns the description of the description,returns the description of the message,"public String getDescString() {
+  return PGridMessage.DESC_INIT_RESP_STRING;
+  }","/**
+   * Returns the representation string for a descriptor of a message.
+   *
+   * @return the message descriptor string.
+   */",,,,Missing Non-Critical Information,Repetition,Consistent but Missing Specific Info,Partial Incorrect Information,Repetition,Missing Data Structures,Missing Non-Critical Information,Repetition,Missing Data Structures
+38,synchronized public void addReplicas(Collection hosts) { hosts.remove(mLocalHost); super.addReplicas(hosts); },adds the delivered hosts to the replicas,add a collection of hosts to the cluster,add a new hosts to the set of hosts for this web application,adds a new var to the list of var s,"synchronized public void addReplicas(Collection hosts) {
+  hosts.remove(mLocalHost);
+  super.addReplicas(hosts);
+  }","/**
+   * Adds the delivered hosts to the replicas.
+   *
+   * @param hosts the new hosts.
+   */",,,,Consistent but Missing Specific Info,Unnecessary Incorrect Information,Failed to mention identifiers,Partial Incorrect Information,Partial Incorrect Information,Different Meaning,Partial Incorrect Information,Unnecessary Incorrect Information,Different Meaning
+39,private void setupTextFiles() { m_products.createTextFile(); m_customers.createTextFile(); },sets up all text files for the test database,create the text files,setup the text file,setup the text to be used for the user,"private void setupTextFiles() {
+ 
+
+  m_products.createTextFile();
+  m_customers.createTextFile();
+  }","/** sets up all text files for the test database
+  */",,,,Missing Non-Critical Information,Missing Non-Critical Information,Missing Non-Critical Information,Missing Database information,Missing Database information,Repetition,Missing Database information,Missing Database information,Repetition
+40,public File canonicalFile(File f) throws IOException { return new File(f.getCanonicalPath()); },"retrieves the canonical file for the given file, in a jdk 11 complaint way",converts a file into a canonical form,returns a file object representing the canonical form of the given file,returns a file to the file,"public File canonicalFile(File f) throws IOException {
+  return new File(f.getCanonicalPath());
+  }","/**
+  * Retrieves the canonical file for the given file, in a
+  * JDK 1.1 complaint way.
+  *
+  * @param f the File for which to retrieve the absolute File
+  * @return the canonical File
+  */",,,,Consistent but Missing Specific Info,Improves upon Semantic Meaning ,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,Consistent but Missing Specific Info,Improves upon Semantic Meaning ,Incomplete Sentence
+41,final public String getRelatedPropertyType() { return relatedPropertyType;,get relatedpropertytype,gets the value of the relatedpropertytype property,returns the related property type,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"final public String getRelatedPropertyType() {
+  return relatedPropertyType;
+  } // end getRelatedPropertyType()","/**
+  * Get RelatedPropertyType
+  *
+  * @return relatedPropertyType
+  */",,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0,Missing Non-Critical Information,Consistent but Missing Specific Info,0,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0
+42,"public double isPathToWaterUnit(Point a, Point b) { return isPath(a, b, new Character[]{WargusStateImporter.TERRAIN_WATER}); }",path helpers which return distance of the shortest path between a and b or a negative number if no path exists,gets the path to a given point,returns true if two chessboard squares are } to the same,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public double isPathToWaterUnit(Point a, Point b) {
+  return isPath(a, b, new Character[]{WargusStateImporter.TERRAIN_WATER});
+  }","/**
+   * Path helpers which return distance of the shortest path between a and b
+   * or a negative number if no path exists.
+   * 
+   * @param a
+   * @param b
+   * @return distance of path or negative number if no path
+   */",,,,Different Meaning,Partial Incorrect Information,0,Different Meaning,Partial Incorrect Information,0,Different Meaning,Partial Incorrect Information,0
+43,public void closeConnection() { if (!open) { return; } messageAreaOut.removeKeyListener(keyHandler); if (sPort != null) { try { os.close(); is.close(); } catch (IOException e) { System.err.println(e); } sPort.close(); portId.removePortOwnershipListener(this); } open = false; },close the port and clean up associated elements,closes the connection,close the message listener,closes the connection and port and remove them,"public void closeConnection() {
+  // If port is alread closed just return.
+  if (!open) {
+  return;
+  }
+ 
+
+  // Remove the key listener.
+  messageAreaOut.removeKeyListener(keyHandler);
+ 
+
+  // Check to make sure sPort has reference to avoid a NPE.
+  if (sPort != null) {
+  try {
+  // close the i/o streams.
+  os.close();
+  is.close();
+  } catch (IOException e) {
+  System.err.println(e);
+  }
+ 
+
+  // Close the port.
+  sPort.close();
+ 
+
+  // Remove the ownership listener.
+  portId.removePortOwnershipListener(this);
+  }
+ 
+
+  open = false;
+  }","/**
+   Close the port and clean up associated elements.
+   */",Missing task elaboration,Missing Attribute Specification,Consistent with Specific Info ,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Partial Incorrect Information,Missing task elaboration,Missing Attribute Specification,Consistent with Specific Info 
+44,public NamespaceFragmentRoot getNamespaceFragmentRoot() { return (NamespaceFragmentRoot) getAncestor(IPHPElement.0MESPACE_FRAGMENT_ROOT); },find enclosing package fragment root if any,get the root namespace fragment root,returns the namespace fragment root,returns the root root of the,"public NamespaceFragmentRoot getNamespaceFragmentRoot() {
+  return (NamespaceFragmentRoot) getAncestor(IPHPElement.0MESPACE_FRAGMENT_ROOT);
+  }","/**
+   * Find enclosing package fragment root if any
+   */",Missing Attribute Specification,Missing Attribute Specification,Repetition,,,,Missing Non-Critical Information,Missing Non-Critical Information,Repetition,Missing Attribute Specification,Missing Attribute Specification,Repetition
+45,public float getSeparation() { return separation; },get the seperation between bodies,gets the separation,returns the },gets the,"public float getSeparation() {
+  return separation;
+  }","/**
+   * Get the seperation between bodies
+   * 
+   * @return The seperation between bodies
+   */",Missing Critical Information,Incomplete Sentence,Incomplete Sentence,,,,Missing Non-Critical Information,Missing Syntax Information,Missing Identifier,Missing Critical Information,Missing Syntax Information,Missing Identifier
+46,"protected void processThumbnailStarted(int imageIndex, int thumbnailIndex) { if (progressListeners != null) { for (IIOWriteProgressListener listener : progressListeners) { listener.thumbnailStarted(this, imageIndex, thumbnailIndex); } } }",processes the start of a thumbnail read by calling thumbnailstarted method of registered iiowriteprogresslisteners,process the thumbnailstarted event,called when a user clicks on the },called when a new var has been started,"protected void processThumbnailStarted(int imageIndex, int thumbnailIndex) {
+  if (progressListeners != null) {
+  for (IIOWriteProgressListener listener : progressListeners) {
+  listener.thumbnailStarted(this, imageIndex, thumbnailIndex);
+  }
+  }
+  }","/**
+  * Processes the start of a thumbnail read by calling thumbnailStarted
+  * method of registered IIOWriteProgressListeners.
+  * 
+  * @param imageIndex
+  * the image index.
+  * @param thumbnailIndex
+  * the thumbnail index.
+  */",Missing Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code,,,,Missing Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code
+47,"public void setPixel(int x, int y, int iArray[]) { sampleModel.setPixel(x - sampleModelTranslateX, y - sampleModelTranslateY, iArray, dataBuffer); }",sets an integer array of samples for the specified pixel in this writableraster,sets the pixel at the specified location an arrayindexoutofboundsexception may be thrown if the coordinates are not in bounds,"sets the pixel in the default rgb coordinate in the default rgb coordinate system, for a single sample of type transfertype",set the pi var el pi var el pi var el pi var el pi var el,"public void setPixel(int x, int y, int iArray[]) {
+  sampleModel.setPixel(x - sampleModelTranslateX, y - sampleModelTranslateY, iArray,
+  dataBuffer);
+  }","/**
+  * Sets an integer array of samples for the specified pixel in this
+  * WritableRaster.
+  * 
+  * @param x
+  * the pixel's X coordinate.
+  * @param y
+  * the pixel's Y coordinate.
+  * @param iArray
+  * the integer array of samples.
+  */",Unnecessary Data Structure Information,Consistent but Missing Specific Info,Repetition,,,,Semantically Unrelated to Code,Missing Non-Critical Information,Repetition,Unnecessary Data Structure Information,Missing Non-Critical Information,Repetition
+48,"public byte getByte(String key) { unparcel(); return getByte(key, (byte) 0); }","returns the value associated with the given key, or (byte) 0 if no mapping of the desired type exists for the given key",get a byte associated with the given configuration key,returns the value for the key as a boolean,get the byte value of the given var as a byte if the var is not a byte returns the var is null,"public byte getByte(String key) {
+  unparcel();
+  return getByte(key, (byte) 0);
+  }","/**
+  * Returns the value associated with the given key, or (byte) 0 if
+  * no mapping of the desired type exists for the given key.
+  *
+  * @param key a String
+  * @return a byte value
+  */",Missing Non-Critical Information,Missing Non-Critical Information,Missing Attribute Specification,,,,Missing Non-Critical Information,Partial Incorrect Information,Repetition,Missing Non-Critical Information,Missing Non-Critical Information,Repetition
+49,public long getNtpTimeReference() { return mNtpTimeReference; },returns the reference clock value (value of systemclockelapsedrealtime()) corresponding to the ntp time,returns the ntp timereference,returns the time the agent has been assigned to,returns the time the reference was created,"public long getNtpTimeReference() {
+  return mNtpTimeReference;
+  }","/**
+  * Returns the reference clock value (value of SystemClock.elapsedRealtime())
+  * corresponding to the NTP time.
+  *
+  * @return reference clock corresponding to the NTP time.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Algorithmically Incorrect,,,,Consistent but Missing Specific Info,Semantically Unrelated to Code,Unnecessary Incorrect Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Unnecessary Incorrect Information
+50,private void didReceiveIcon(Bitmap icon) { mCallbackProxy.onReceivedIcon(icon); },send the icon to the activity for display,handle a received icon,called when a new receive is received,called when a new icon is received,"private void didReceiveIcon(Bitmap icon) {
+  mCallbackProxy.onReceivedIcon(icon);
+  }","/**
+  * Send the icon to the activity for display.
+  * @param icon A Bitmap representing a page's favicon.
+  */",Missing Critical Information,Incorrect Identifier/Attribute,Missing Critical Information,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Critical Information,Incorrect Identifier/Attribute,Missing Critical Information
+51,public void goBack() { goBackOrForward(-1); },go back in the history of this webview,navigates to the previous page,displays the back dialog,back back to the previous page,"public void goBack() {
+  goBackOrForward(-1);
+  }","/**
+  * Go back in the history of this WebView.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition
+52,public boolean hasFormData() { synchronized (mFormLock) { return hasEntries(TABLE_FORMURL_ID); } },find out if there is form data saved,returns true if the formurl_id has been set,returns whether it has the form data,returns whether it has the data,"public boolean hasFormData() {
+  synchronized (mFormLock) {
+  return hasEntries(TABLE_FORMURL_ID);
+  }
+  }","/**
+  * Find out if there is form data saved.
+  *
+  * @return TRUE if there is form data in the database
+  */",Algorithmically Incorrect,Consistent with Specific Info ,Consistent but Missing Specific Info,,,,Consistent but Missing Specific Info,Missing Non-Critical Information,Failed to mention identifiers,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent but Missing Specific Info
+53,public boolean isInputViewShown() { return mIsInputViewShown && mWindowVisible; },return whether the soft input view is currently shown to the user this is the state that was last determined and applied by },checks if the input view is currently visible,returns true if the specified view is to be displayed,returns whether the view is visible,"public boolean isInputViewShown() {
+  return mIsInputViewShown && mWindowVisible;
+  }","/**
+  * Return whether the soft input view is <em>currently</em> shown to the
+  * user. This is the state that was last determined and
+  * applied by {@link #updateInputViewShown()}.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,,,,Missing Non-Critical Information,Missing Non-Critical Information,Missing Identifier,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info
+54,"public long insert(String table, String nullColumnHack, ContentValues values) { try { return insertWithOnConflict(table, nullColumnHack, values, null); } catch (SQLException e) { Log.e(TAG, ""Error inserting "" + values, e); return -1; } }",convenience method for inserting a row into the database,inserts a new record into the database,inserts the given value into the cache,inserts a new var into the database,"public long insert(String table, String nullColumnHack, ContentValues values) {
+  try {
+  return insertWithOnConflict(table, nullColumnHack, values, null);
+  } catch (SQLException e) {
+  Log.e(TAG, ""Error inserting "" + values, e);
+  return -1;
+  }
+  }","/**
+  * Convenience method for inserting a row into the database.
+  *
+  * @param table the table to insert the row into
+  * @param nullColumnHack SQL doesn't allow inserting a completely empty row,
+  * so if initialValues is empty this column will explicitly be
+  * assigned a NULL value
+  * @param values this map contains the initial column values for the
+  * row. The keys should be the column names and the values the
+  * column values
+  * @return the row ID of the newly inserted row, or -1 if an error occurred
+  */",Consistent with Specific Info ,Algorithmically Incorrect,Missing Attribute Specification,,,,Consistent but Missing Specific Info,Missing Database information,Missing Non-Critical Information,Consistent with Specific Info ,Missing Database information,Missing Attribute Specification
+55,public Builder setTitle(int titleId) { P.mTitle = P.mContext.getText(titleId); return this; },set the title using the given resource id,sets the title,sets the title of the title,sets the title of the var,"public Builder setTitle(int titleId) {
+  P.mTitle = P.mContext.getText(titleId);
+  return this;
+  }","/**
+  * Set the title using the given resource id.
+  *
+  * @return This Builder object to allow for chaining of calls to set methods
+  */",Missing Non-Critical Information,Repetition,Missing Attribute Specification,,,,Missing Non-Critical Information,Repetition,Missing Identifier,Missing Non-Critical Information,Repetition,Missing Attribute Specification
+56,public void callApplicationOnCreate(Application app) { app.onCreate(); },perform calling of the application's method the default implementation simply calls through to that method,called when an application is created,calls the } on the ui thread,create an application var,"public void callApplicationOnCreate(Application app) {
+  app.onCreate();
+  }","/**
+  * Perform calling of the application's {@link Application#onCreate}
+  * method. The default implementation simply calls through to that method.
+  * 
+  * @param app The application being created.
+  */",Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Semantically Unrelated to Code,,,,Partial Incorrect Information,Semantically Unrelated to Code,Missing Identifier,Consistent but Missing Specific Info,Semantically Unrelated to Code,Missing Identifier
+57,public boolean containsKey(String key) { return mValues.containsKey(key); },returns true if this object has the named value,returns true if the map contains the specified key,checks whether the given key is contained in this collection,returns true if the given var is in the map,"public boolean containsKey(String key) {
+  return mValues.containsKey(key);
+  }","/**
+  * Returns true if this object has the named value.
+  *
+  * @param key the value to check for
+  * @return {@code true} if the value is present, {@code false} otherwise 
+  */",Consistent with Specific Info ,Consistent with Specific Info ,Missing Attribute Specification,,,,Missing Identifier,Missing Identifier,Missing Non-Critical Information,Missing Identifier,Consistent with Specific Info ,Missing Attribute Specification
+58,"public void setListenForNetworkTickles(boolean flag) { Settings.setListenForNetworkTickles(mContentResolver, flag); }",set whether or not the device should listen for tickles,enables or disables dependency checking,set whether or not the network send } for network discovery,set the to be used for the and,"public void setListenForNetworkTickles(boolean flag) {
+  Settings.setListenForNetworkTickles(mContentResolver, flag);
+  }","/**
+  * Set whether or not the device should listen for tickles.
+  *
+  * @param flag true if it should listen.
+  */",Algorithmically Incorrect,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Identifier,Semantically Unrelated to Code,,,,Missing Non-Critical Information,Missing Identifier,Semantically Unrelated to Code
+59,public CharSequence getSummaryOff() { return mSummaryOff; },returns the summary to be shown when unchecked,returns the summary off,returns the currently enabled },returns the current text for the current record,"public CharSequence getSummaryOff() {
+  return mSummaryOff;
+  }","/**
+  * Returns the summary to be shown when unchecked.
+  * @return The summary.
+  */",Incomplete Sentence,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Identifier,Semantically Unrelated to Code,,,,Incomplete Sentence,Semantically Unrelated to Code,Semantically Unrelated to Code
+60,"public void moveTo(float x, float y) { mPath.moveTo(mLastX = x, mLastY = y); }","set the beginning of the next contour to the point (x,y)",description of the method,moves the location of the object,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void moveTo(float x, float y) {
+  mPath.moveTo(mLastX = x, mLastY = y);
+  }","/**
+  * Set the beginning of the next contour to the point (x,y).
+  *
+  * @param x The x-coordinate of the start of a new contour
+  * @param y The y-coordinate of the start of a new contour
+  */",Semantically Unrelated to Code,Missing Attribute Specification,0,Focusing Only on Method Name ,Improves upon Semantic Meaning ,0,,,,Focusing Only on Method Name ,Improves upon Semantic Meaning ,0
+61,"public void adjustStreamVolume(int streamType, int direction, int flags) { IAudioService service = getService(); try { service.adjustStreamVolume(streamType, direction, flags); } catch (RemoteException e) { Log.e(TAG, ""Dead object in adjustStreamVolume"", e); } }",adjusts the volume of a particular stream by one step in a direction,adjust the stream volume,adjusts the volume of the stream,adjusts the volume of a var,"public void adjustStreamVolume(int streamType, int direction, int flags) {
+  IAudioService service = getService();
+  try {
+  service.adjustStreamVolume(streamType, direction, flags);
+  } catch (RemoteException e) {
+  Log.e(TAG, ""Dead object in adjustStreamVolume"", e);
+  }
+  }","/**
+  * Adjusts the volume of a particular stream by one step in a direction.
+  *
+  * @param streamType The stream type to adjust. One of {@link #STREAM_VOICE_CALL},
+  * {@link #STREAM_SYSTEM}, {@link #STREAM_RING}, {@link #STREAM_MUSIC} or
+  * {@link #STREAM_ALARM}
+  * @param direction The direction to adjust the volume. One of
+  * {@link #ADJUST_LOWER}, {@link #ADJUST_RAISE}, or
+  * {@link #ADJUST_SAME}.
+  * @param flags One or more flags.
+  * @see #adjustVolume(int, int)
+  * @see #setStreamVolume(int, int, int)
+  */",Missing Non-Critical Information,Missing Non-Critical Information,Missing Attribute Specification,Missing Non-Critical Information,Missing Non-Critical Information,Failed to mention identifiers,,,,Missing Non-Critical Information,Missing Non-Critical Information,Failed to mention identifiers
+62,"public void setVibrateSetting(int vibrateType, int vibrateSetting) { IAudioService service = getService(); try { service.setVibrateSetting(vibrateType, vibrateSetting); } catch (RemoteException e) { Log.e(TAG, ""Dead object in setVibrateSetting"", e); } }",sets the setting for when the vibrate type should vibrate,sets the vibrate setting,sets the service type for the given vibrate,sets the var of the var,"public void setVibrateSetting(int vibrateType, int vibrateSetting) {
+  IAudioService service = getService();
+  try {
+  service.setVibrateSetting(vibrateType, vibrateSetting);
+  } catch (RemoteException e) {
+  Log.e(TAG, ""Dead object in setVibrateSetting"", e);
+  }
+  }","/**
+  * Sets the setting for when the vibrate type should vibrate.
+  *
+  * @param vibrateType The type of vibrate. One of
+  * {@link #VIBRATE_TYPE_NOTIFICATION} or
+  * {@link #VIBRATE_TYPE_RINGER}.
+  * @param vibrateSetting The vibrate setting, one of
+  * {@link #VIBRATE_SETTING_ON},
+  * {@link #VIBRATE_SETTING_OFF}, or
+  * {@link #VIBRATE_SETTING_ONLY_SILENT}.
+  * @see #getVibrateSetting(int)
+  * @see #shouldVibrate(int)
+  */",Missing Non-Critical Information,Missing Attribute Specification,Failed to mention identifiers,Missing Non-Critical Information,Improves upon Semantic Meaning ,Failed to mention identifiers,,,,Missing Non-Critical Information,Improves upon Semantic Meaning ,Failed to mention identifiers
+63,public void setPath(Path path) { mPath = path.toString(); },"sets the value of the ""path"" attribute",sets the path,sets the path,sets the path to the path of the path are not relative to the path of the path,"public void setPath(Path path) {
+  mPath = path.toString();
+  }","/**
+  * Sets the value of the ""path"" attribute.
+  * @param path the value.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Extreme Repetition ,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Extreme Repetition ,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Extreme Repetition 
+64,public void setListener(ICustomViewDescriptorListener listener) { mListener = listener; },sets the listener receiving custom view class modification notifications,sets the custom view listener,sets the listener to be notified of the view change events,sets the listener to be used for the,"public void setListener(ICustomViewDescriptorListener listener) {
+  mListener = listener;
+  }","/**
+  * Sets the listener receiving custom View class modification notifications.
+  * @param listener the listener to receive the notifications.
+  *
+  * TODO will be used to update the ElementDescriptor of the custom view when it
+  * is modified (either the class itself or its attributes.xml)
+  */",Missing task elaboration,Consistent with Specific Info ,Incomplete Sentence,Consistent but Missing Specific Info,Improves upon Semantic Meaning ,Different Meaning,,,,Consistent but Missing Specific Info,Improves upon Semantic Meaning ,Incomplete Sentence
+65,public Node deleteXmlNode() { if (mXmlNode == null) { return null; } Node old_xml_node = mXmlNode; clearContent(); Node xml_parent = old_xml_node.getParentNode(); if (xml_parent == null) { xml_parent = getXmlDocument(); } old_xml_node = xml_parent.removeChild(old_xml_node); invokeUiUpdateListeners(UiUpdateState.DELETED); return old_xml_node; },"removes the xml node corresponding to this ui node if it exists and also removes all mirrored information in this ui node (ie children, attributes)",delete the xml node from the model,delete the xml node from the underlying dom node,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public Node deleteXmlNode() {
+  if (mXmlNode == null) {
+  return null;
+  }
+ 
+
+  // First clear the internals of the node and *then* actually deletes the XML
+  // node (because doing so will generate an update even and this node may be
+  // revisited via loadFromXmlNode).
+  Node old_xml_node = mXmlNode;
+  clearContent();
+  
+  Node xml_parent = old_xml_node.getParentNode();
+  if (xml_parent == null) {
+  xml_parent = getXmlDocument();
+  }
+  old_xml_node = xml_parent.removeChild(old_xml_node);
+ 
+
+  invokeUiUpdateListeners(UiUpdateState.DELETED);
+  return old_xml_node;
+  }","/**
+  * Removes the XML node corresponding to this UI node if it exists
+  * and also removes all mirrored information in this UI node (i.e. children, attributes)
+  * 
+  * @return The removed node or null if it didn't exist in the firtst place. 
+  */",Missing task elaboration,Missing task elaboration,0,Missing Non-Critical Information,Missing Non-Critical Information,0,,,,Missing task elaboration,Missing task elaboration,0
+66,public String getJavaDoc() { return mJavaDoc; },"returns a short javadoc, ie the first sentence",returns the java doc,the java source code,set the java doc var,"public String getJavaDoc() {
+  return mJavaDoc;
+  }","/** Returns a short javadoc, .i.e. the first sentence. */",Consistent but Missing Specific Info,Incomplete Sentence,Algorithmically Incorrect,Consistent with Specific Info ,Unnecessary file information,Different Meaning,,,,Consistent but Missing Specific Info,Incomplete Sentence,Algorithmically Incorrect
+67,public void setJavaDoc(String javaDoc) { mJavaDoc = javaDoc; },"sets a short javadoc, ie the first sentence",sets the javadoc,set the java doc,set the java doc var,"public void setJavaDoc(String javaDoc) {
+  mJavaDoc = javaDoc;
+  }","/** Sets a short javadoc, .i.e. the first sentence. */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Algorithmically Incorrect,Consistent with Specific Info ,Consistent with Specific Info ,Unnecessary Data Structure Information,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Algorithmically Incorrect
+68,"public void setMethodName(String className, String testName) { setClassName(className + METHOD_SEPARATOR + testName); }",sets to run only specified test method must be called before 'run',sets the method name,sets the name of the method that (allegedly) issued the logging request,sets the name of the method,"public void setMethodName(String className, String testName) {
+  setClassName(className + METHOD_SEPARATOR + testName);
+  }","/**
+  * Sets to run only specified test method
+  * Must be called before 'run'.
+  * 
+  * @param className fully qualified class name (eg x.y.z)
+  * @param testName method name
+  */",Missing Attribute Specification,Unnecessary file information,Missing Attribute Specification,Missing Non-Critical Information,Unnecessary Incorrect Information,Missing Non-Critical Information,,,,Missing Attribute Specification,Unnecessary file information,Missing Attribute Specification
+69,public BackingStoreException (String s) { super(s); },constructs a new instance with a detailed exception message,create the exception,create the exception,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public BackingStoreException (String s) {
+  super(s);
+  }","/**
+  * Constructs a new {@code BackingStoreException} instance with a detailed exception
+  * message.
+  * 
+  * @param s
+  * the detailed exception message.
+  * @since Android 1.0
+  */",Missing Attribute Specification,Missing Attribute Specification,0,Missing Non-Critical Information,Missing Non-Critical Information,0,,,,Missing Non-Critical Information,Missing Non-Critical Information,0
+70,public void checkCreateClassLoader() { checkPermission(RuntimePermission.permissionToCreateClassLoader); },checks whether the calling thread is allowed to create a class loader,check permission to create a classloader,check to create class loader,checks to see if the class is not supported,"public void checkCreateClassLoader() {
+  checkPermission(RuntimePermission.permissionToCreateClassLoader);
+  }","/**
+  * Checks whether the calling thread is allowed to create a class loader.
+  * 
+  * @throws SecurityException
+  *  if the calling thread is not allowed to create a class
+  *  loader.
+  * @since Android 1.0
+  */",Consistent but Missing Specific Info,Missing Non-Critical Information,Semantically Unrelated to Code,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Different Meaning,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Different Meaning
+71,"public StringBuilder append(CharSequence csq, int start, int end) { append0(csq, start, end); return this; }","appends the string representation of the specified subsequence of the if the is , then the string is used to extract the subsequence from",appends the specified character sequence to this sequence,appends the specified characters of the specified charsequence to this sequence the argument is appended to this sequence at the end of this sequence the length of this sequence increases by the length of the argument the length of this sequence increases by the length of the argument the length,app var s the var pecified character var var in the given var tring,"public StringBuilder append(CharSequence csq, int start, int end) {
+  append0(csq, start, end);
+  return this;
+  }","/**
+  * Appends the string representation of the specified subsequence of the
+  * {@code CharSequence}. If the {@code CharSequence} is {@code null}, then
+  * the string {@code ""null""} is used to extract the subsequence from.
+  * 
+  * @param csq
+  * the {@code CharSequence} to append.
+  * @param start
+  * the beginning index.
+  * @param end
+  * the ending index.
+  * @return this builder.
+  * @throws IndexOutOfBoundsException
+  *  if {@code start} or {@code end} are negative, {@code start}
+  *  is greater than {@code end} or {@code end} is greater than
+  *  the length of {@code csq}.
+  * @since Android 1.0
+  */",Missing Attribute Specification,Extreme Repetition ,Extreme Repetition ,Consistent with Specific Info ,Extreme Repetition ,Repetition,,,,Consistent with Specific Info ,Extreme Repetition ,Repetition
+72,public boolean contains(CharSequence cs) { if (cs == null) { throw new NullPointerException(); } return indexOf(cs.toString()) >= 0; },determines if this contains the sequence of characters in the passed,returns true if this set contains the specified character,removes the specified charsequence from this },returns true if the given sequence is contained in this sequence is,"public boolean contains(CharSequence cs) {
+  if (cs == null) {
+  throw new NullPointerException();
+  }
+  return indexOf(cs.toString()) >= 0;
+  }","/**
+  * Determines if this {@code String} contains the sequence of characters in
+  * the {@code CharSequence} passed.
+  * 
+  * @param cs
+  * the character sequence to search for.
+  * @return {@code true} if the sequence of characters are contained in this
+  *  string, otherwise {@code false}.
+  * @since Android 1.0
+  */",Algorithmically Incorrect,Incorrect Identifier/Attribute,Unnecessary Incorrect Information,Consistent with Specific Info ,Failed to mention identifiers,Grammatical Errors ,,,,Consistent with Specific Info ,Failed to mention identifiers,Unnecessary Incorrect Information
+73,public GeneralName getBase() { return base; },returns the value of base field of the structure,gets the base,gets the value of the base property,returns the base name,"public GeneralName getBase() {
+  return base;
+  }","/**
+  * Returns the value of base field of the structure.
+  * @return base
+  */",,,,Consistent with Specific Info ,Improves upon Semantic Meaning ,Consistent with Specific Info ,Missing Non-Critical Information,Missing Non-Critical Information,Missing Non-Critical Information,Consistent with Specific Info ,Improves upon Semantic Meaning ,Consistent with Specific Info 
+74,"public void testSubmitNPE2() { ExecutorService e = Executors.newCachedThreadPool(); ExecutorCompletionService ecs = new ExecutorCompletionService(e); try { Runnable r = null; ecs.submit(r, Boolean.TRUE); shouldThrow(); } catch (NullPointerException success) { } finally { joinPool(e); } }",submitting a null runnable throws npe,a unit test for junit,tests if the join is executed properly,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testSubmitNPE2() {
+  ExecutorService e = Executors.newCachedThreadPool();
+  ExecutorCompletionService ecs = new ExecutorCompletionService(e);
+  try {
+  Runnable r = null;
+  ecs.submit(r, Boolean.TRUE);
+  shouldThrow();
+  } catch (NullPointerException success) {
+  } finally {
+  joinPool(e);
+  }
+  }","/**
+  * Submitting a null runnable throws NPE
+  */",,,,Incorrect Identifier/Attribute,Consistent with Specific Info ,0,Semantically Unrelated to Code,Missing Critical Information,0,Incorrect Identifier/Attribute,Missing Critical Information,0
+75,public void testToArray_BadArg() { try { PriorityBlockingQueue q = populatedQueue(SIZE); Object o[] = q.toArray(null); shouldThrow(); } catch(NullPointerException success){} },toarray(null) throws npe,test toarray(object,"tests if the priority queue can be empty, ie empty",test that the method argument is expected to be the same as the } method and the method is not,"public void testToArray_BadArg() {
+  try {
+  PriorityBlockingQueue q = populatedQueue(SIZE);
+  Object o[] = q.toArray(null);
+  shouldThrow();
+  } catch(NullPointerException success){}
+  }","/**
+  * toArray(null) throws NPE
+  */",,,,Incomplete Sentence,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Missing Exception,Missing Non-Critical Information,Semantically Unrelated to Code,Missing Exception,Consistent but Missing Specific Info,Semantically Unrelated to Code
+76,public int getPacketBufferSize() { return SSLRecordProtocol.MAX_SSL_PACKET_SIZE; },gives the largest ssltls packet size one can expect for this concrete ssl session,returns the ssl buffer size in bytes,returns the size of the underlying socket,returns the number of packets that are sent to the client,"public int getPacketBufferSize() {
+  return SSLRecordProtocol.MAX_SSL_PACKET_SIZE;
+  }","/**
+  * Gives the largest SSL/TLS packet size one can expect for this concrete
+  * SSL session.
+  * @return the largest packet size
+  */",,,,Missing Critical Information,Missing Critical Information,Unnecessary Incorrect Information,Missing Non-Critical Information,Failed to mention identifiers,Semantically Unrelated to Code,Missing Critical Information,Missing Critical Information,Unnecessary Incorrect Information
+77,"private OpenSSLSessionImpl getCachedClientSession() { if (super.getInetAddress() == null || super.getInetAddress().getHostAddress() == null || super.getInetAddress().getHostName() == null) { return null; } ClientSessionContext sessionContext = sslParameters.getClientSessionContext(); return (OpenSSLSessionImpl) sessionContext.getSession( super.getInetAddress().getHostName(), super.getPort()); }",gets the suitable session reference from the session cache container,returns the cached client session,returns the } for this } or null if the host is not set,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private OpenSSLSessionImpl getCachedClientSession() {
+  if (super.getInetAddress() == null ||
+  super.getInetAddress().getHostAddress() == null ||
+  super.getInetAddress().getHostName() == null) {
+  return null;
+  }
+  ClientSessionContext sessionContext
+  = sslParameters.getClientSessionContext();
+  return (OpenSSLSessionImpl) sessionContext.getSession(
+  super.getInetAddress().getHostName(),
+  super.getPort());
+  }","/**
+  * Gets the suitable session reference from the session cache container.
+  *
+  * @return OpenSSLSessionImpl
+  */",,,,Missing Non-Critical Information,Failed to mention identifiers,0,Missing Non-Critical Information,Missing Syntax Information,0,Missing Non-Critical Information,Missing Syntax Information,0
+78,public boolean covers(int pc) { return (pc >= startPc) && (pc < endPc); },returns whether the given address is in the range of this item,returns true if the point at the specified address is covered,return true if the given identity is greater than the current value,returns true if the var is in the range,"public boolean covers(int pc) {
+  return (pc >= startPc) && (pc < endPc);
+  }","/**
+  * Returns whether the given address is in the range of this item.
+  *
+  * @param pc the address
+  * @return <code>true</code> iff this item covers <code>pc</code>
+  */",,,,Consistent with Specific Info ,Algorithmically Incorrect,Failed to mention identifiers,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Non-Critical Information,Consistent with Specific Info ,Algorithmically Incorrect,Missing Non-Critical Information
+79,public InnerClassList getInnerClasses() { return innerClasses; },"gets the list of ""inner class"" entries associated with this instance",gets the inner classes,returns the inner classes,get the inner inner class,"public InnerClassList getInnerClasses() {
+  return innerClasses;
+  }","/**
+  * Gets the list of ""inner class"" entries associated with this instance.
+  * 
+  * @return non-null; the list
+  */",,,,Consistent with Specific Info ,Consistent with Specific Info ,Repetition,Missing Non-Critical Information,Missing Non-Critical Information,Repetition,Consistent with Specific Info ,Consistent with Specific Info ,Repetition
+80,private void addToUses(SsaInsn insn) { RegisterSpecList rl = insn.getSources(); int sz = rl.size(); for (int i = 0; i < sz; i++) { useList[rl.get(i).getReg()].add(insn); } },adds specified insn to the uses list for all of its sources,adds tls to the registry,adds the given instructions to the list of instructions,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private void addToUses(SsaInsn insn) {
+  RegisterSpecList rl = insn.getSources();
+  int sz = rl.size();
+ 
+
+  for (int i = 0; i < sz; i++) {
+  useList[rl.get(i).getReg()].add(insn);
+  }
+  }","/**
+  * Adds specified insn to the uses list for all of its sources.
+  * @param insn non-null; insn to process
+  */",,,,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,0,Semantically Unrelated to Code,Partial Incorrect Information,0,Incorrect Identifier/Attribute,Partial Incorrect Information,0
+81,public CstMethodRef getRef() { return ref; },gets the reference to the method this instance implements,returns the cstmethodref,returns the reference to the target method ref,returns the reference to the,"public CstMethodRef getRef() {
+  return ref;
+  }","/**
+  * Gets the reference to the method this instance implements.
+  * 
+  * @return non-null; the method reference
+  */",,,,Focusing Only on Method Name ,Improves upon Semantic Meaning ,Incomplete Sentence,Missing Non-Critical Information,Missing Non-Critical Information,Semantically Unrelated to Code,Focusing Only on Method Name ,Missing Non-Critical Information,Incomplete Sentence
+82,public AnnotationsList getParameterAnnotations(CstMethodRef method) { return annotationsDirectory.getParameterAnnotations(method); },"gets the parameter annotations for a given method, if any this is meant for use by debugging dumping code",returns the parameter annotations for the given method,returns the },returns the list of annotations for this var are not supported are not supported,"public AnnotationsList getParameterAnnotations(CstMethodRef method) {
+  return annotationsDirectory.getParameterAnnotations(method);
+  }","/**
+  * Gets the parameter annotations for a given method, if any. This is
+  * meant for use by debugging / dumping code.
+  * 
+  * @param method non-null; the method
+  * @return null-ok; the parameter annotations, if any
+  */",,,,Consistent with Specific Info ,Incomplete Sentence,Repetition,Missing Conditional Information,Missing Non-Critical Information,Semantically Unrelated to Code,Missing Conditional Information,Missing Non-Critical Information,Repetition
+83,"public boolean inRange(int val, int min, int max) { if (val < min) return false; if (val > max) return false; return true; }","return true if val is in the range [min|max], inclusive",test if the value is in range,returns true if the specified range is within the range of values,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public boolean inRange(int val, int min, int max) {
+  if (val < min)
+  return false;
+  if (val > max)
+  return false;
+  return true;
+  }","/** Return true if val is in the range [min|max], inclusive. */",,,,Consistent with Specific Info ,Incorrect Identifier/Attribute,0,Missing Critical Information,Missing Identifier,0,Consistent with Specific Info ,Incorrect Identifier/Attribute,0
+84,"private String contentsOfFile(File file) { String ret = null; FileInputStream is = null; try { byte[] buffer = new byte[BUFSIZE]; int count; is = new FileInputStream(file); StringBuffer out = new StringBuffer(); while ((count = is.read(buffer, 0, BUFSIZE)) != -1) { out.append(new String(buffer, 0, count)); } ret = out.toString(); } catch (IOException e) { Log.e(TAG, ""Exception getting contents of file "" + e); } finally { if (is != null) { try { is.close(); } catch (IOException e2) { Log.e(TAG, ""Exception while closing the file: "" + e2); } } } return ret; }",returns a string containing the contents of a file,description of the method,contents of the file,returns the contents of the file to be written to the file,"private String contentsOfFile(File file) {
+  String ret = null;
+  FileInputStream is = null;
+  try {
+  byte[] buffer = new byte[BUFSIZE];
+  int count;
+  is = new FileInputStream(file);
+  StringBuffer out = new StringBuffer();
+ 
+
+  while ((count = is.read(buffer, 0, BUFSIZE)) != -1) {
+  out.append(new String(buffer, 0, count));
+  }
+  ret = out.toString();
+  } catch (IOException e) {
+  Log.e(TAG, ""Exception getting contents of file "" + e);
+  } finally {
+  if (is != null) {
+  try {
+  is.close();
+  } catch (IOException e2) {
+  Log.e(TAG, ""Exception while closing the file: "" + e2);
+  }
+  }
+  }
+  return ret;
+  }","/**
+  * Returns a string containing the contents of a file
+  *
+  * @param file the target file
+  */",,,,Focusing Only on Method Name ,Consistent with Specific Info ,Unnecessary Incorrect Information,Semantically Unrelated to Code,Missing Non-Critical Information,Unnecessary file information,Focusing Only on Method Name ,Consistent with Specific Info ,Unnecessary file information
+85,"private void runKeyguardConfirmation() { final Intent intent = new Intent(); intent.setClassName(""com.android.settings"", ""com.android.settings.ConfirmLockPattern""); intent.putExtra(ConfirmLockPattern.HEADER_TEXT, getText(R.string.master_clear_gesture_prompt)); intent.putExtra(ConfirmLockPattern.FOOTER_TEXT, getText(R.string.master_clear_gesture_explanation)); startActivityForResult(intent, KEYGUARD_REQUEST); }",keyguard validation is run using the standard component as a subactivity,run the key guard request,runs the } state,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private void runKeyguardConfirmation() {
+  final Intent intent = new Intent();
+  intent.setClassName(""com.android.settings"",
+  ""com.android.settings.ConfirmLockPattern"");
+  // supply header and footer text in the intent
+  intent.putExtra(ConfirmLockPattern.HEADER_TEXT,
+  getText(R.string.master_clear_gesture_prompt));
+  intent.putExtra(ConfirmLockPattern.FOOTER_TEXT,
+  getText(R.string.master_clear_gesture_explanation));
+  startActivityForResult(intent, KEYGUARD_REQUEST);
+  }","/**
+  * Keyguard validation is run using the standard {@link ConfirmLockPattern}
+  * component as a subactivity
+  */",,,,Missing Non-Critical Information,Incomplete Sentence,0,Missing Non-Critical Information,Missing Syntax Information,0,Missing Non-Critical Information,Missing Syntax Information,0
+86,"public boolean isConnected() { for (Profile profile : mProfiles) { int status = LocalBluetoothProfileManager.getProfileManager(mLocalManager, profile) .getConnectionStatus(mAddress); if (SettingsBtStatus.isConnectionStatusConnected(status)) { return true; } } return false; }",checks whether we are connected to this device (any profile counts),checks if the connection status is set,returns true if the connection is connected to the node,returns true if the current user is connected to the server,"public boolean isConnected() {
+  for (Profile profile : mProfiles) {
+  int status = LocalBluetoothProfileManager.getProfileManager(mLocalManager, profile)
+  .getConnectionStatus(mAddress);
+  if (SettingsBtStatus.isConnectionStatusConnected(status)) {
+  return true;
+  }
+  }
+ 
+
+  return false;
+  }","/**
+  * Checks whether we are connected to this device (any profile counts).
+  *
+  * @return Whether it is connected.
+  */",,,,Consistent with Specific Info ,Consistent with Specific Info ,Incorrect Identifier/Attribute,Missing Non-Critical Information,Missing Identifier,Partial Incorrect Information,Consistent with Specific Info ,Consistent with Specific Info ,Partial Incorrect Information
+87,public int getColourDepth() { return iconEntry == null ? -1 : iconEntry.sBitCount; },the colour depth of the ico image (bits per pixel),returns the depth of the colour,returns the current icon depth,returns the index of the icon,"public int getColourDepth() {
+  return iconEntry == null ? -1 : iconEntry.sBitCount;
+  }","/**
+  * The colour depth of the ICO image (bits per pixel).
+  * @return the colour depth, or <tt>-1</tt> if unknown.
+  * @since 0.7alpha2
+  */",,,,Algorithmically Incorrect,Missing Critical Information,Algorithmically Incorrect,Missing Identifier,Partial Incorrect Information,Semantically Unrelated to Code,Missing Identifier,Missing Critical Information,Algorithmically Incorrect
+88,public IAnswerData getAnswerValue() { return mBinding.getValue(); },the answer to a question in the prompt as an,returns the value,get the answer value,returns the value of this object,"public IAnswerData getAnswerValue() {
+  return mBinding.getValue();
+  }","/**
+  * The answer to a question in the prompt as an {@link IAnswerData}.
+  */",Missing Attribute Specification,Missing Non-Critical Information,Missing Attribute Specification,,,,Missing Non-Critical Information,Missing Non-Critical Information,Missing Critical Information,Missing Non-Critical Information,Missing Critical Information,Missing Critical Information
+89,public void setClasspath(Path classpath) { createClasspath().append(classpath); },set the optional classpath to the xsl processor,sets the classpath,set the classpath to be used for this compilation,adds a var to the classpath and classpath and,"public void setClasspath(Path classpath) {
+  createClasspath().append(classpath);
+  }","/**
+  * Set the optional classpath to the XSL processor
+  *
+  * @param classpath the classpath to use when loading the XSL processor
+  */",Missing Non-Critical Information,Consistent but Missing Specific Info,Repetition,,,,Missing Non-Critical Information,Missing Non-Critical Information,Repetition,Missing Non-Critical Information,Consistent but Missing Specific Info,Repetition
+90,"public void endOldContents() throws DiffException { try { out.write(""</oldcontents>""); } catch (IOException ioe) { throw new DiffException(ioe); } }",end the list of old contents,ends the end of the old contents,ends the old contents of the current file,called when the contents of the contents is finished,"public void endOldContents() throws DiffException {
+  try {
+  out.write(""</oldcontents>"");
+  } catch (IOException ioe) {
+  throw new DiffException(ioe);
+  }
+  }","/**
+  * End the list of old contents.
+  *
+  * @throws DiffException when there is an underlying exception, e.g.
+  *  writing to a file caused an IOException
+  */",Incorrect Identifier/Attribute,Missing Attribute Specification,Missing Attribute Specification,,,,Missing Non-Critical Information,Unnecessary Incorrect Information,Repetition,Incorrect Identifier/Attribute,Missing Attribute Specification,Missing Attribute Specification
+91,"public void doCut() { Editor editor=getJPE().getEditor(); copyBuffer=editor.cutSelectedText(); Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard(); cb.setContents( new StringSelection(copyBuffer), this); getJPE().say(""Text Cut""); }",cut the selected text and place it in the copy buffer,description of the method,copies the selected text to the clipboard and performs the duplicate action,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void doCut() {
+  Editor editor=getJPE().getEditor();
+  copyBuffer=editor.cutSelectedText();
+  Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+  cb.setContents( new StringSelection(copyBuffer), this);
+  getJPE().say(""Text Cut"");
+  }","/**
+  * Cut the selected text and place it in the copy buffer
+  */",Focusing Only on Method Name ,Partial Incorrect Information,0,,,,Semantically Unrelated to Code,Partial Incorrect Information,0,Focusing Only on Method Name ,Partial Incorrect Information,0
+92,"public void precompile(Collection col) { caching(true); Iterator iterator = col.iterator(); while(iterator.hasNext()) { Object bean = iterator.next(); Object ret = bv.get(this.attribute, bean); cache.put(bean, ret); } }",do a schwartzian transform precompile of all the values pattern from perl,precompiles the given collection,calls } on all objects in the given column,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void precompile(Collection col) {
+  caching(true);
+  Iterator iterator = col.iterator();
+  while(iterator.hasNext()) {
+  Object bean = iterator.next();
+  Object ret = bv.get(this.attribute, bean);
+  cache.put(bean, ret);
+  }
+  }","/**
+  * Do a Schwartzian transform precompile of all the values.
+  * Pattern from Perl.
+  */",Missing task elaboration,Incorrect Identifier/Attribute,0,,,,Missing Prog. Language Information ,Semantically Unrelated to Code,0,Missing Prog. Language Information ,Incorrect Identifier/Attribute,0
+93,"private void init(City start, City destination, int maximumDistance) { this.maximumDistance = maximumDistance; sourceNode = start; destinationNode = destination; trips = 0; }",initialize all data structures used by the algorithm,inits the map,sets the destination of the edge to the given range,initialize the node with the given var and,"private void init(City start, City destination, int maximumDistance) {
+  this.maximumDistance = maximumDistance;
+  sourceNode = start;
+  destinationNode = destination;
+  trips = 0;
+  }","/**
+  * Initialize all data structures used by the algorithm.
+  *
+  * @param start the source node
+  */",Missing Attribute Specification,Algorithmically Incorrect,Semantically Unrelated to Code,,,,Missing Data Structures,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Data Structures,Algorithmically Incorrect,Semantically Unrelated to Code
+94,public boolean isValidForApi() { return isValid() && (width < API_MAX_DEGREE_DIFFERENCE) && (height < API_MAX_DEGREE_DIFFERENCE); },checks if the bounding box is valid for the osm api,is this api valid for api?,returns true if the specified span is valid for this shape,returns true if the current is valid for the max is valid,"public boolean isValidForApi() {
+  return isValid() && (width < API_MAX_DEGREE_DIFFERENCE) && (height < API_MAX_DEGREE_DIFFERENCE);
+  }","/**
+   * Checks if the bounding box is valid for the OSM API.
+   * 
+   * @return true, if the bbox is smaller than 0.5*0.5 (here multiplied by
+   * 1E7) degree.
+   */",Missing Formatting,Missing Attribute Specification,Incorrect Identifier/Attribute,,,,Missing Non-Critical Information,Algorithmically Incorrect,Partial Incorrect Information,Missing Non-Critical Information,Missing Attribute Specification,Partial Incorrect Information
+95,public void setBorders(final BoundingBox newBox) { left = newBox.left; right = newBox.right; top = newBox.top; bottom = newBox.bottom; calcDimensions(); calcMercatorFactorPow3(); },sets the borders to the ones of newbox recalculates dimensions and mercator-factor,sets the bounding box,set the left boundingbox of the image,sets the var of this node,"public void setBorders(final BoundingBox newBox) {
+  left = newBox.left;
+  right = newBox.right;
+  top = newBox.top;
+  bottom = newBox.bottom;
+  calcDimensions();
+  calcMercatorFactorPow3();
+  }","/**
+   * Sets the borders to the ones of newBox. Recalculates dimensions and
+   * mercator-factor.
+   * 
+   * @param newBox bos with the new borders.
+   */",Missing task elaboration,Missing task elaboration,Missing Attribute Specification,,,,Missing Non-Critical Information,Missing Identifier,Semantically Unrelated to Code,Missing Non-Critical Information,Missing task elaboration,Semantically Unrelated to Code
+96,public void setInterfaceAddress(String ia) { if (null != ia) { ia = ia.trim(); if (0 == ia.length()) { ia = null; } } this.interfaceAddress = ia; },sets the interface which the tcp transport will use,sets the interface address,set the interface address,sets the address of the interface,"public void setInterfaceAddress(String ia) {
+  if (null != ia) {
+  ia = ia.trim();
+  
+  if (0 == ia.length()) {
+  ia = null;
+  }
+  }
+  
+  this.interfaceAddress = ia;
+  }","/**
+  * Sets the interface which the TCP transport will use.
+  *
+  * @param ia The interface to use. May be a DNS name or an IP Address.
+  */",Missing task elaboration,Missing task elaboration,Missing task elaboration,,,,Missing Non-Critical Information,Missing Non-Critical Information,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Non-Critical Information,Missing task elaboration
+97,public void setMulticastSize(int size) { tcpConfig.setMulticastSize(size); },sets the ip group multicast packet size,set the multicast socket size,sets the multicast size of the swf window,set the var of the,"public void setMulticastSize(int size) {
+  tcpConfig.setMulticastSize(size);
+  }","/**
+  * Sets the IP group multicast packet size
+  *
+  * @param size the new multicast packet
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incomplete Sentence,,,,Missing Identifier,Missing Identifier,Semantically Unrelated to Code,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Incomplete Sentence
+98,"private void upOneLevel() { Log.d(""FileBrowser"",""upOneLevel()""); if (this.currentDirectory.getParent() != null) this.browseTo(this.currentDirectory.getParentFile()); }",this function browses up one level according to the field: currentdirectory,move up one level,method },performs the correct action,"private void upOneLevel() {
+  Log.d(""FileBrowser"",""upOneLevel()"");
+  if (this.currentDirectory.getParent() != null)
+  this.browseTo(this.currentDirectory.getParentFile());
+  }","/**
+   * This function browses up one level according to the field:
+   * currentDirectory
+   */",Missing task elaboration,Incomplete Sentence,Semantically Unrelated to Code,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Non-Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code
+99,"public ITypeHierarchy getSuperTypeHierarchy(IType type, IProgressMonitor monitor) throws ModelException { if (!superHierarchyCache.containsKey(type)) { superHierarchyCache.put(type, type.newSupertypeHierarchy(monitor)); } return superHierarchyCache.get(type); }",calculates super type hierarchy,returns the supertypehierarchy for the given type,returns the } for the given type,returns the super class for the given var,"public ITypeHierarchy getSuperTypeHierarchy(IType type, IProgressMonitor monitor) throws ModelException {
+  if (!superHierarchyCache.containsKey(type)) {
+  superHierarchyCache.put(type, type.newSupertypeHierarchy(monitor));
+  }
+  return superHierarchyCache.get(type);
+  }","/**
+   * Calculates super type hierarchy
+   * @throws ModelException 
+   */",Missing Non-Critical Information,Incorrect Identifier/Attribute,Missing Attribute Specification,,,,Missing Critical Information,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Critical Information,Incorrect Identifier/Attribute,Missing Non-Critical Information
+100,"public void endResponse(final OChannelBinaryClient iNetwork) { iNetwork.endResponse(); if (debug) System.out.println(""<- res: "" + getSessionId()); }",end response reached: release the channel in the pool to being reused,ends a response,method called when the channel has been closed,called when the response is finished,"public void endResponse(final OChannelBinaryClient iNetwork) {
+  iNetwork.endResponse();
+ 
+
+  if (debug)
+  System.out.println(""<- res: "" + getSessionId());
+  }","/**
+   * End response reached: release the channel in the pool to being reused
+   */",Missing task elaboration,Missing Attribute Specification,Missing Attribute Specification,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Non-Critical Information,Missing Attribute Specification,Missing Attribute Specification
+101,public boolean isReuseSameObject() { return reusedObject != null; },tells if the iterator is using the same object for browsing,gets the value of the reusedobject property,returns true if the given object is equivalent to this one,returns true if this object is an object,"public boolean isReuseSameObject() {
+  return reusedObject != null;
+  }","/**
+   * Tells if the iterator is using the same object for browsing.
+   * 
+   * @see #setReuseSameObject(boolean)
+   */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Algorithmically Incorrect,,,,Missing Non-Critical Information,Semantically Unrelated to Code,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Algorithmically Incorrect
+102,protected void ack(int timeout) { ACK ack = new ACK(transaction.getId()); ack.setTimeToComplete(timeout); server.sendAck(ack); },send an ack to the client (via serverimpl),send an ack,start a new ack,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"protected void ack(int timeout) {
+  ACK ack = new ACK(transaction.getId());
+  ack.setTimeToComplete(timeout);
+  server.sendAck(ack); 
+  }",/** Send an ACK to the client (via serverImpl).*/,Missing task elaboration,Missing Critical Information,0,,,,Missing Critical Information,Partial Incorrect Information,0,Missing Critical Information,Missing Critical Information,0
+103,private boolean hasMoreFixedGroups(long time) { long nextTime = -1L; Iterator ifg = fixedGroups.iterator(); while (ifg.hasNext()) { FixedGroup fg = (FixedGroup) ifg.next(); long fgtime = fg.getFixedTime(); if (fgtime + fixedGroupPostStartLapseTime > time) { if (fgtime > nextTime) { nextTime = fgtime; } } } if (nextTime > 0) return true; return false; },returns true if there are any (executable) fixed groups after time,checks if there are any fixed groups remaining,returns true if the next } has more than one time,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private boolean hasMoreFixedGroups(long time) {
+  long nextTime = -1L;
+ 
+
+  Iterator ifg = fixedGroups.iterator();
+  while (ifg.hasNext()) {
+  FixedGroup fg = (FixedGroup) ifg.next();
+  long fgtime = fg.getFixedTime();
+  // if we havnt already past its latest start time count it
+  if (fgtime + fixedGroupPostStartLapseTime > time) {
+  if (fgtime > nextTime) {
+  nextTime = fgtime;
+  }
+  }
+  }
+ 
+
+  if (nextTime > 0)
+  return true;
+  return false;
+  }","/**
+   * Returns true if there are any (executable) fixed groups after time.
+   * 
+   * @param time
+   * The time after which we wish to find fixed groups.
+   */",Consistent but Missing Specific Info,Incorrect Identifier/Attribute,0,Consistent with Specific Info ,Failed to mention identifiers,0,,,,Consistent but Missing Specific Info,Failed to mention identifiers,0
+104,,start the cache loader thread,description of the method,,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"//  public void startLoader() {
+ //  Loader loader = new Loader();
+ //  loader.start();
+ //  }",//  /** Start the cache loader thread.*/,0,0,0,,,,,,,0,0,0
+105,public SimpleShape getShape(String name) { ShapeInfo info = (ShapeInfo) m_shapes.get(name); if (info == null) { return m_defaultShape; } else { return info.m_shape; } },retrieves the available <tt>simpleshape<tt> associated with the given name,get a shape by name,returns the shape with the given name,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public SimpleShape getShape(String name) {
+  ShapeInfo info = (ShapeInfo) m_shapes.get(name);
+  if (info == null) {
+  return m_defaultShape;
+  } else {
+  return info.m_shape;
+  }
+  }","/**
+  * Retrieves the available <tt>SimpleShape</tt> associated with the given
+  * name.
+  * 
+  * @param name The name of the <tt>SimpleShape</tt> to retrieve.
+  * @return The corresponding <tt>SimpleShape</tt> instance if available or
+  *  <tt>null</tt>.
+  **/",Missing task elaboration,Missing task elaboration,0,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0
+106,"protected void addedBundle(Bundle bundle) { processBundleOnEventThread(ADDED, bundle); }",overrides the <tt>bundletracker<tt> functionality to inform the application object about the added extensions,called when a bundle is added to the queue,internal worker to be executed if a bundle is found,this method is called when the plugin is added,"protected void addedBundle(Bundle bundle) {
+  processBundleOnEventThread(ADDED, bundle);
+  }","/**
+  * Overrides the <tt>BundleTracker</tt> functionality to inform the
+  * application object about the added extensions.
+  * 
+  * @param bundle The activated bundle.
+  **/",Missing Attribute Specification,Algorithmically Incorrect,Algorithmically Incorrect,Algorithmically Incorrect,Unnecessary Incorrect Information,Different Meaning,,,,Algorithmically Incorrect,Algorithmically Incorrect,Algorithmically Incorrect
+107,public void checkCancel(final IProgressMonitor monitor) throws OperationCanceledException { if (monitor != null && monitor.isCanceled()) { throw new OperationCanceledException(); } },check whether the build has been canceled,checks to see if the operation is canceled,check if the build is valid,cancel the progress monitor,"public void checkCancel(final IProgressMonitor monitor) throws OperationCanceledException {
+  if (monitor != null && monitor.isCanceled()) {
+  throw new OperationCanceledException();
+  }
+  }","/**
+   * Check whether the build has been canceled.
+   * 
+   * @param monitor
+   * @throws OperationCanceledException
+   */",Consistent but Missing Specific Info,Algorithmically Incorrect,Algorithmically Incorrect,Consistent but Missing Specific Info,Partial Incorrect Information,Algorithmically Incorrect,,,,Consistent but Missing Specific Info,Partial Incorrect Information,Algorithmically Incorrect
+108,public void setLocale (Locale locale) { collator = Collator.getInstance(locale); location = locale; },sets the locale to be used for sorting,sets the locale,set the locale used by this request,sets the var and,"public void setLocale (Locale locale) {
+  collator = Collator.getInstance(locale);
+  location = locale;
+  }","/**
+  * Sets the locale to be used for sorting.
+  *
+  * @param locale  The locale to be used for sorting.
+  */",Missing task elaboration,Missing Critical Information,Incomplete Sentence,Consistent with Specific Info ,Consistent but with Unnecessary Info,Incomplete Sentence,,,,Missing task elaboration,Consistent but with Unnecessary Info,Incomplete Sentence
+109,"private String basename(String fileName) { if (end == 0) { end = fileName.length(); } return fileName.substring(start, end); }",returns the file name (excluding directories and extension),description of the method,convert the file name to a string,returns the string of the given var and end of the end,"private String basename(String fileName) {
+  int start = fileName.lastIndexOf(FSEP) + 1; // last '/'
+  int end = fileName.lastIndexOf("".""); // last '.'
+  
+  if (end == 0) {
+  end = fileName.length();
+  }
+  return fileName.substring(start, end);
+  }",/** Returns the file name (excluding directories and extension). */,Semantically Unrelated to Code,Missing task elaboration,Incorrect Identifier/Attribute,Focusing Only on Method Name ,Consistent but Missing Specific Info,Repetition,,,,Focusing Only on Method Name ,Consistent but Missing Specific Info,Repetition
+110,"public void removeAllButSelectedTab() { TabPanel lTabPanel = (TabPanel) iTabbedPane.getComponent(iTabbedPane.getSelectedIndex()); removeAllTabs(); iTabbedPane.add(lTabPanel.getPeptideIdentification().getName(), lTabPanel); iTabbedPane.setSelectedIndex(0); }",remove all tabs except the selected tab,description of the method,removes all tab panels from the tabbed pane,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void removeAllButSelectedTab() {
+  // First get the component that was selected,
+  TabPanel lTabPanel = (TabPanel) iTabbedPane.getComponent(iTabbedPane.getSelectedIndex());
+  // Remove all components,
+  removeAllTabs();
+  // re-add the selected component.
+  iTabbedPane.add(lTabPanel.getPeptideIdentification().getName(), lTabPanel);
+  iTabbedPane.setSelectedIndex(0);
+  }","/**
+  * Remove all tabs except the selected tab.
+  */",Semantically Unrelated to Code,Partial Incorrect Information,0,Focusing Only on Method Name ,Algorithmically Incorrect,0,,,,Focusing Only on Method Name ,Partial Incorrect Information,0
+111,public boolean isEmpty() { return handlers.isEmpty(); },checks whether any more responses are expected,checks if is empty,returns true if this map contains no key-value mappings,returns whether it is the empty list,"public boolean isEmpty() {
+  return handlers.isEmpty();
+  }","/**
+  * Checks whether any more responses are expected.
+  * @return True if no more handlers exist, false otherwise.
+  */",Focusing Only on Method Name ,Algorithmically Incorrect,Missing Attribute Specification,Failed to mention identifiers,Semantically Unrelated to Code,Missing Attribute Specification,,,,Focusing Only on Method Name ,Semantically Unrelated to Code,Missing Attribute Specification
+112,"protected String getAliasFromMailPath() { if (mailPath == null) { return null; } int index = mailPath.lastIndexOf('/', mailPath.length() - 2); if (index >= 0 && mailPath.endsWith(""/"")) { return mailPath.substring(index + 1, mailPath.length() - 1); } else { LOGGER.warn(new BundleMessage(""EXCEPTION_INVALID_MAIL_PATH"", mailPath)); return null; } }",get current exchange alias name from mailbox name,extract the alias from the mailpath,returns the alias from the given mail path,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"protected String getAliasFromMailPath() {
+  if (mailPath == null) {
+  return null;
+  }
+  int index = mailPath.lastIndexOf('/', mailPath.length() - 2);
+  if (index >= 0 && mailPath.endsWith(""/"")) {
+  return mailPath.substring(index + 1, mailPath.length() - 1);
+  } else {
+  LOGGER.warn(new BundleMessage(""EXCEPTION_INVALID_MAIL_PATH"",
+  mailPath));
+  return null;
+  }
+  }","/**
+   * Get current Exchange alias name from mailbox name
+   * 
+   * @return user name
+   */",Missing Attribute Specification,Missing Attribute Specification,0,Consistent with Specific Info ,Consistent with Specific Info ,0,,,,Consistent with Specific Info ,Consistent with Specific Info ,0
+113,"public void setInput(Object bean) { for (String fieldName : form.getFields().keySet()) { try { Object value = BeanSupport.getProperty(bean, fieldName); setInput(fieldName, value); /* simply do not set a value for this field in input map */ } } }",sets the form's input from the specified bean,sets the input,sets the bean value for the bean,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void setInput(Object bean) {
+  for (String fieldName : form.getFields().keySet()) {
+  try {
+  Object value = BeanSupport.getProperty(bean, fieldName);
+  setInput(fieldName, value);
+  } catch (Exception e) { // PropertyNotFoundException etc.
+  /* simply do not set a value for this field in input map */
+  }
+  }
+  }","/**
+   * Sets the form's input from the specified bean.
+   * 
+   * @param bean The bean from which the values are fetched
+   */",Missing task elaboration,Missing Attribute Specification,0,Missing Critical Information,Algorithmically Incorrect,0,,,,Missing Critical Information,Algorithmically Incorrect,0
+114,"public String getPackageName(){ return ""Pdsim Package""; }","returns the name of the package of modules (eg, ""basic mesquite package"", ""rhetenor"")",returns the package name,return the package name,returns the package name,"public String getPackageName(){
+    return ""Pdsim Package"";
+    }","/** Returns the name of the package of modules (e.g., ""Basic Mesquite Package"", ""Rhetenor"")*/",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info
+115,"public JSONObject toJSONObject() throws Exception{ JSONObject json = new JSONObject(); json.put(""id"", id); json.put(""parametro"", parametro); json.put(""valor"", valor); json.put(""tipoValor"", tipoValor); json.put(""medida"", medida); return json; }",this will create a json object and output to client get the data from database and display result to gui convert jsonobject,converts this object to a json object,convert this object to json representation,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public JSONObject toJSONObject() throws Exception{
+   
+  JSONObject json = new JSONObject();
+   json.put(""id"", id);
+      json.put(""parametro"", parametro);
+      json.put(""valor"", valor);
+      json.put(""tipoValor"", tipoValor);
+      json.put(""medida"", medida);
+      
+  return json;
+  }","/**
+   * This will create a JSON object and output to client. Get the data from
+   * database and display result to GUI
+   * Convert JSONObject
+   * @return
+   * @throws Exception
+   */",Missing task elaboration,Missing task elaboration,0,Partial Incorrect Information,Partial Incorrect Information,0,,,,Partial Incorrect Information,Partial Incorrect Information,0
+116,public Iterator4 iterator(){ return hashtableIterator(); },iterates through all the,returns an iterator over the hashtable,get the location of the parameter,returns an iterator over the elements in this list in the list,"public Iterator4 iterator(){
+  return hashtableIterator();
+  }","/**
+   * Iterates through all the {@link Entry4 entries}.
+   * 
+   * @return {@link Entry4} iterator
+   * @see #values()
+   * @see #keys()
+   * #see {@link #valuesIterator()}
+   */",Consistent but Missing Specific Info,Algorithmically Incorrect,Repetition,Consistent with Specific Info ,Different Meaning,Repetition,,,,Consistent with Specific Info ,Algorithmically Incorrect,Repetition
+117,"public String toString() { String x = ""(TREE "" + block + "" stack=""; for (int i = 0; i < stack.size(); i++) { final Expr expr = stack.get(i); x += expr.type().shortName(); } return x + "")""; }",returns a string representation of this tree,description of the method,returns a string representation of this expression,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public String toString() {
+  String x = ""(TREE "" + block + "" stack="";
+ 
+
+  for (int i = 0; i < stack.size(); i++) {
+  final Expr expr = stack.get(i);
+  x += expr.type().shortName();
+  }
+ 
+
+  return x + "")"";
+  }","/**
+   * Returns a String representation of this Tree.
+   */",Missing Formatting,Consistent but Missing Specific Info,0,Focusing Only on Method Name ,Consistent but Missing Specific Info,0,,,,Focusing Only on Method Name ,Consistent but Missing Specific Info,0
+118,"public void setDockingDesktop(DockingDesktop desktop){ this.desktop = desktop; DockableState [] states = desktop.getDockables(); Arrays.sort(states); this.model = new DockablesTableModel(states); table.setModel(model); table.getColumnModel().getColumn(0).setPreferredWidth(25); table.getColumnModel().getColumn(1).setPreferredWidth(200); table.getColumnModel().getColumn(2).setPreferredWidth(70); table.setPreferredScrollableViewportSize(new Dimension(300,300)); table.setCellSelectionEnabled(true); table.setShowVerticalLines(false); table.setRowHeight(20); }",requiered to initialize this dialog <p> invoke this method before packing the dialog,sets the dockeddesktop,sets the states of the },###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void setDockingDesktop(DockingDesktop desktop){
+  this.desktop = desktop;
+ 
+
+  DockableState [] states = desktop.getDockables();
+  Arrays.sort(states);
+  this.model = new DockablesTableModel(states);
+  table.setModel(model);
+  table.getColumnModel().getColumn(0).setPreferredWidth(25);
+  table.getColumnModel().getColumn(1).setPreferredWidth(200);
+  table.getColumnModel().getColumn(2).setPreferredWidth(70);
+  table.setPreferredScrollableViewportSize(new Dimension(300,300));
+  table.setCellSelectionEnabled(true);
+  table.setShowVerticalLines(false);
+  table.setRowHeight(20);
+  }","/** Requiered to initialize this dialog.
+  * <P> Invoke this method before packing the dialog.
+  *
+  * */",,,,Consistent with Specific Info ,Failed to mention identifiers,0,Missing task elaboration,Semantically Unrelated to Code,0,Missing task elaboration,Failed to mention identifiers,0
+119,public double getValue(Long time) { return valueMap.get(time); },returns a value for given point in time,gets the value,returns the value of the } field of this object,returns the value of the specified var,"public double getValue(Long time) {
+  return valueMap.get(time);
+  }","/**
+  * Returns a value for given point in time.
+  * @param time Time for which value should be returned.
+  * @return Value of the timeseries at given point.
+  */",,,,Missing Critical Information,Failed to mention identifiers,Failed to mention identifiers,Missing Critical Information,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Critical Information,Failed to mention identifiers,Missing Non-Critical Information
+120,"public void testRandomBooleanList_goodDistribution_posOfFalse() throws Exception { int expected_position = 15; int tolerance = 2; int array_lenght = 31; testDistributionOfRandomBooleanList_MeanPositionOf(false, expected_position, tolerance, array_lenght); }",generate a number of boolean arrays with only one false the position of false should be in the middle of the array length,test random boolean list with bad probability list,a test with a different rgb,test that the method is not valid,"public void testRandomBooleanList_goodDistribution_posOfFalse() throws Exception {
+  
+  int expected_position = 15;
+  int tolerance = 2;
+  int array_lenght = 31;
+  
+  testDistributionOfRandomBooleanList_MeanPositionOf(false, expected_position, tolerance, array_lenght);
+  }","/**
+  * Generate a number of boolean arrays with only one false. The position
+  * of false should be in the middle of the array length.
+  */",,,,Different Meaning,Different Meaning,Different Meaning,Missing Non-Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code,Missing Non-Critical Information,Semantically Unrelated to Code,Semantically Unrelated to Code
+121,"public Element toXML(Document doc) { Element layoutElt = doc.createElement(""Layout""); XMLTools.addProperty(doc, layoutElt, ""OverrideCancelPage"", ""Integer"", overrideCancelPage); XMLTools.addProperty(doc, layoutElt, ""OverrideCastPage"", ""Integer"", overrideCastPage); XMLTools.addProperty(doc, layoutElt, ""ResponsePage"", ""Integer"", responsePage); for (Page p : pages) { Element pageElt = p.toXML(doc); layoutElt.appendChild(pageElt); } return layoutElt; }",converts this layout object to xml,convert myself to an xml element,this method writes the } to the output stream,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public Element toXML(Document doc) {
+  Element layoutElt = doc.createElement(""Layout"");
+  XMLTools.addProperty(doc, layoutElt, ""OverrideCancelPage"", ""Integer"", overrideCancelPage);
+  XMLTools.addProperty(doc, layoutElt, ""OverrideCastPage"", ""Integer"", overrideCastPage);
+  XMLTools.addProperty(doc, layoutElt, ""ResponsePage"", ""Integer"", responsePage);
+  
+  for (Page p : pages) {
+  Element pageElt = p.toXML(doc);
+  layoutElt.appendChild(pageElt);
+  }
+  return layoutElt;
+  }","/**
+   * Converts this Layout object to XML
+   * @param doc the document
+   * @return the element for this Layout
+   */",,,,Incorrect Identifier/Attribute,Semantically Unrelated to Code,0,Missing Identifier,Semantically Unrelated to Code,0,Incorrect Identifier/Attribute,Semantically Unrelated to Code,0
+122,"public void moveUpCandidateButtonPressed() { if (candidatesTable.getEditingRow() == -1) { int idx = candidatesTable.getSelectedRow(); if (idx > 0) { int newIdx = idx - 1; tableModel.moveRow( idx, newIdx ); candidatesTable.clearSelection(); candidatesTable.addRowSelectionInterval( newIdx, newIdx ); } } }",moves the current candidate up one,move the cursor up in the table,move the selected candidate,move down row up row up up up up up up up up up down,"public void moveUpCandidateButtonPressed() {
+  if (candidatesTable.getEditingRow() == -1) {
+  int idx = candidatesTable.getSelectedRow();
+  if (idx > 0) {
+  int newIdx = idx - 1;
+  // card.moveCandidate(idx, newIdx);
+  tableModel.moveRow( idx, newIdx );
+  candidatesTable.clearSelection();
+  candidatesTable.addRowSelectionInterval( newIdx, newIdx );
+  }
+  }
+  }","/**
+  * Moves the current candidate up one
+  */",,,,Consistent but Missing Specific Info,Failed to mention identifiers,Repetition,Missing Identifier,Missing Non-Critical Information,Repetition,Consistent but Missing Specific Info,Failed to mention identifiers,Repetition
+123,"public void schedule(CandidateURI caUri) { String canon = canonicalize(caUri); if (caUri.forceFetch()) { alreadyIncluded.addForce(canon, caUri); } else { alreadyIncluded.add(canon, caUri); } }","arrange for the given candidateuri to be visited, if it is not already scheduledcompleted",schedule the given candidateuri,} the uri of the ca,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void schedule(CandidateURI caUri) {
+  // Canonicalization may set forceFetch flag. See
+  // #canonicalization(CandidateURI) javadoc for circumstance.
+  String canon = canonicalize(caUri);
+  if (caUri.forceFetch()) {
+  alreadyIncluded.addForce(canon, caUri);
+  } else {
+  alreadyIncluded.add(canon, caUri);
+  }
+  }","/**
+  * Arrange for the given CandidateURI to be visited, if it is not
+  * already scheduled/completed.
+  *
+  * @see org.archive.crawler.framework.Frontier#schedule(org.archive.crawler.datamodel.CandidateURI)
+  */",,,,Consistent but Missing Specific Info,Incomplete Sentence,0,Missing Non-Critical Information,Semantically Unrelated to Code,0,Consistent but Missing Specific Info,Semantically Unrelated to Code,0
+124,public void setErrorMessage(String string) { errorMessage = string; },set an error message for this job generally this only occurs if the job is misconfigured,set the error message,sets the error message,sets the error message,"public void setErrorMessage(String string) {
+  errorMessage = string;
+  writeJobFile(); //Save changes
+  }","/**
+  * Set an error message for this job. Generally this only occurs if the job
+  * is misconfigured.
+  * @param string the error message associated with this job
+  */",,,,Consistent with Specific Info ,Consistent with Specific Info ,Consistent with Specific Info ,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info
+125,"public void cleanUpOldFiles(File basedir, String prefix) { File [] files = FileUtils.getFilesWithPrefix(basedir, prefix); if (files != null) { for (int i = 0; i < files.length; i++) { FileUtils.deleteDir(files[i]); } } }",delete any files left over from previous run,removes all files with the given prefix,cleans up the },clean up files and directories files files files files,"public void cleanUpOldFiles(File basedir, String prefix) {
+  File [] files = FileUtils.getFilesWithPrefix(basedir, prefix);
+  if (files != null) {
+  for (int i = 0; i < files.length; i++) {
+  FileUtils.deleteDir(files[i]);
+  }
+  }
+  }","/**
+  * Delete any files left over from previous run.
+  *
+  * @param prefix Base name of files we're to clean up.
+  * @param basedir Directory to start cleaning in.
+  */",,,,Consistent with Specific Info ,Failed to mention identifiers,Repetition,Missing Non-Critical Information,Semantically Unrelated to Code,Repetition,Missing Non-Critical Information,Failed to mention identifiers,Repetition
+126,"private void accessingCharacters(CharSequence rcs) { long timestamp = (new Date()).getTime(); int seeks = 0; for (int i = (INCREMENT * 2); (i + INCREMENT) < rcs.length(); i += INCREMENT) { checkCharacter(rcs, i); seeks++; for (int j = i - INCREMENT; j < i; j++) { checkCharacter(rcs, j); seeks++; } } logger.fine(rcs + "" seeks count "" + seeks + "" in "" + ((new Date().getTime()) - timestamp) + "" milliseconds.""); }",accessing characters test checks that characters in the rcs are in sequence,check that the character sequence is accessing,performs a accessing sequence of accessing the sequence,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private void accessingCharacters(CharSequence rcs) {
+  long timestamp = (new Date()).getTime();
+  int seeks = 0;
+  for (int i = (INCREMENT * 2); (i + INCREMENT) < rcs.length();
+  i += INCREMENT) {
+  checkCharacter(rcs, i);
+  seeks++;
+  for (int j = i - INCREMENT; j < i; j++) {
+  checkCharacter(rcs, j);
+  seeks++;
+  }
+  }
+  // Note that printing out below breaks cruisecontrols drawing
+  // of the xml unit test results because it outputs disallowed
+  // xml characters.
+  logger.fine(rcs + "" seeks count "" + seeks + "" in "" +
+  ((new Date().getTime()) - timestamp) + "" milliseconds."");
+  }","/**
+  * Accessing characters test.
+  *
+  * Checks that characters in the rcs are in sequence.
+  *
+  * @param rcs The ReplayCharSequence to try out.
+  */",,,,Different Meaning,Grammatical Errors ,0,Partial Incorrect Information,Repetition,0,Partial Incorrect Information,Grammatical Errors ,0
+127,public void start(BundleContext context) { m_context = context; WindowTracker tracker = launcher.setWindowTracker(new WindowTracker( m_context)); tracker.open(); },starts service tracking for text editor,starts this bundle,this method is called upon plug-in activation,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void start(BundleContext context) {
+  m_context = context;
+ 
+
+  WindowTracker tracker = launcher.setWindowTracker(new WindowTracker(
+  m_context));
+  tracker.open();
+  }","/**
+   * Starts service tracking for text editor
+   * 
+   * @param context
+   * The context of the bundle.
+   **/",,,,Missing Critical Information,Semantically Unrelated to Code,0,Missing Identifier,Semantically Unrelated to Code,0,Missing Identifier,Semantically Unrelated to Code,0
+128,public void setHeight(int height) { _containerHeight = height; },this method sets the minimum height of the table in pixels,sets the height of the container,sets the height of the image,sets the height of the image,"public void setHeight(int height) {
+  _containerHeight = height;
+  }","/**
+   * This method sets the minimum height of the table in pixels.
+   */",,,,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute,Missing Non-Critical Information,Missing Identifier,Missing Identifier,Consistent but Missing Specific Info,Incorrect Identifier/Attribute,Incorrect Identifier/Attribute
+129,"public HtmlLink newEmailLink(String name, String text, String address, String font) { HtmlLink l = new HtmlLink(name, ""mailto:"" + address, _page); HtmlText t = new HtmlText(text, font, _page, _theme); l.add(t); return l; }",use this method to create an e-mail (mail to) link,create a new email link,generates html link,create a new link with a new link and var,"public HtmlLink newEmailLink(String name, String text, String address, String font) {
+  HtmlLink l = new HtmlLink(name, ""mailto:"" + address, _page);
+  HtmlText t = new HtmlText(text, font, _page, _theme);
+  l.add(t);
+  return l;
+  }","/**
+  * Use this method to create an e-mail (mail to) link.
+  * @param name The name for the component.
+  * @param text The Text to display under the link.
+  * @param address The address of the person to send the mail to.
+  * @param font The Font to use (HtmlText.FONT_...).
+  */",,,,Consistent with Specific Info ,Missing Non-Critical Information,Repetition,Consistent but Missing Specific Info,Algorithmically Incorrect,Unnecessary Incorrect Information,Consistent but Missing Specific Info,Algorithmically Incorrect,Repetition
+130,public void setFocus() { _focus = true; _focusRow = -1; _select=false; },this method will set the edit focus to this component,set the focus,passing the focus request to the viewer's control,sets the focus to the viewers control,"public void setFocus() {
+  _focus = true;
+  _focusRow = -1;
+  _select=false;
+  }","/**
+   * This method will set the edit focus to this component.
+   */",,,,Consistent but Missing Specific Info,Different Meaning,Different Meaning,Missing Identifier,Partial Incorrect Information,Partial Incorrect Information,Consistent but Missing Specific Info,Different Meaning,Different Meaning
+131,public void setHeadingCaption(String text) { _headingCaption = text; },this method sets the text for the heading on the component,sets the heading caption,this method sets the text for the heading on the component,sets the caption of the caption of the caption of the caption,"public void setHeadingCaption(String text) {
+  _headingCaption = text;
+  }","/**
+   * This method sets the text for the heading on the component
+   */",,,,Consistent with Specific Info ,Consistent with Specific Info ,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Repetition
+132,public void setAddImage(HtmlSubmitImage img) { if (_btnAddListForm != null) { _boxList.removeHeadingComponent(_btnAddListForm); } img.addSubmitListener(this); _boxList.addHeadingComponent(_btnAddListForm = img); },replaces default search button (if any) with a submit image,set add image,this method sets the image to be added to the wizard,adds a new var to the list of var s,"public void setAddImage(HtmlSubmitImage img) {
+  // Add Button
+  if (_btnAddListForm != null) {
+  _boxList.removeHeadingComponent(_btnAddListForm);
+  }
+  img.addSubmitListener(this);
+  _boxList.addHeadingComponent(_btnAddListForm = img);
+  }","/**
+  * Replaces default search button (if any) with a submit image
+  * @param The SumbitImage to use for the search button.
+  */",,,,Focusing Only on Method Name ,Missing Non-Critical Information,Missing Critical Information,Semantically Unrelated to Code,Partial Incorrect Information,Repetition,Focusing Only on Method Name ,Missing Non-Critical Information,Repetition
+133,public void clearAllPagesFromSession() { HttpSession sess = getSession(); clearAllPagesFromSession(sess); },this method removes the pages from the session that will force the application to reinitialize the pages the next time they are visited,removes all pages from the session,clear all pages from the session,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void clearAllPagesFromSession() {
+  HttpSession sess = getSession();
+  clearAllPagesFromSession(sess);
+  }","/**
+   * This method removes the pages from the session. That will force the
+   * application to reinitialize the pages the next time they are visited.
+   */",Missing task elaboration,Missing task elaboration,0,,,,Consistent but Missing Specific Info,Missing Non-Critical Information,0,Consistent but Missing Specific Info,Missing Non-Critical Information,0
+134,public void setBorderColor(String value) { _bordercolor = value; },sets the background color for the table,sets the border color,sets the value of the backgroundcolor property,sets the border color,"public void setBorderColor(String value) {
+  _bordercolor = value;
+  }","/**
+  * Sets the background color for the table.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,,,,Missing Identifier,Consistent but Missing Specific Info,Missing Identifier,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info
+135,"public boolean setRowStatus(int status) { return setRowStatus(getRow(), status); }",this method sets the status flag of the current row,sets the current row status,setter for property },returns whether the row is var,"public boolean setRowStatus(int status) {
+  return setRowStatus(getRow(), status);
+  }","/**
+   * This method sets the status flag of the current row.
+   * @param status (STATUS_NOT_MODIFIED,STATUS_MODIFIED,STATUS_NEW,STATUS_NEW_MODIFIED)
+   * @return True if the row is in the buffer and false if not
+   */",Consistent but Missing Specific Info,Missing task elaboration,Semantically Unrelated to Code,,,,Consistent but Missing Specific Info,Semantically Unrelated to Code,Semantically Unrelated to Code,Consistent but Missing Specific Info,Semantically Unrelated to Code,Semantically Unrelated to Code
+136,"public void setString(int row, String column, String value) throws DataStoreException { setObject(row, column, value, DATATYPE_STRING); }",this method sets a value in the data store's internal buffer,set the value of the string column for the specified row,"set the value of the row, column for the specified row",###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void setString(int row, String column, String value) throws DataStoreException {
+  setObject(row, column, value, DATATYPE_STRING);
+  }","/**
+   * This method sets a value in the data store's internal buffer.
+   * @param row The row number for the value to set.
+   * @param column The column for the value to set.
+   * @param value The data to place in the column.
+   */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,0,,,,Missing Non-Critical Information,Missing Non-Critical Information,0,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0
+137,"public void setWidth(int width){ if(width < 6) { } setPreferredSize(new Dimension(width,height)); this.width = width; repaint(); }",sets the width in pixels of the bars,sets the width,sets the width of the },sets the var of the component,"public void setWidth(int width){
+  if(width < 6) {
+  width = 6; // Prevent short notes from being invisible...
+  }
+  setPreferredSize(new Dimension(width,height));
+  this.width = width;
+  repaint();
+  }","/**
+   * Sets the width in pixels of the bars
+   * @param width
+   */",Missing task elaboration,Missing task elaboration,Missing Attribute Specification,,,,Missing Non-Critical Information,Missing Non-Critical Information,Semantically Unrelated to Code,Missing Non-Critical Information,Missing Attribute Specification,Missing Attribute Specification
+138,public boolean multiValidNomerator(String snemo){ int nemo = -1; try{ nemo = Integer.parseInt(snemo); } catch ( NumberFormatException e) { return false; } if( nemo != -1 && snemo.length() == 2 && 1 <= nemo && nemo <= 64 ){ numerator = nemo; return true; } return false; },checks if the input is a valid nomerator input is a string,description of the method,validate the multi multi multi multi },###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public boolean multiValidNomerator(String snemo){
+ 
+
+  int nemo = -1;
+  
+  try{
+  nemo = Integer.parseInt(snemo);
+  
+  } catch ( NumberFormatException e) {
+  
+  return false;
+  }
+  
+  //Check if the string i 2 characters long and the value is between 1 and 64
+  if( nemo != -1 && snemo.length() == 2 && 1 <= nemo && nemo <= 64 ){
+  
+  numerator = nemo;
+  
+  return true;
+ 
+
+  }
+  
+  return false;
+  
+  }","/**
+   * Checks if the input is a valid Nomerator
+   * Input is a string
+   */",Semantically Unrelated to Code,Extreme Repetition ,0,Focusing Only on Method Name ,Extreme Repetition ,0,,,,Focusing Only on Method Name ,Extreme Repetition ,0
+139,"public Cell findCell(int row, int column) { for (CellEntry entry : this.entries) { Cell cell = entry.getCell(); if ((cell.getRow() == row) && (cell.getCol() == column)) { return cell; } else if (cell.getRow() > row) { return null; } } return null; }","returns the cell at (row, column), or null if not found",finds a cell in given row and column,returns the cell at the specified row and column,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public Cell findCell(int row, int column) {
+  for (CellEntry entry : this.entries) {
+  Cell cell = entry.getCell();
+  if ((cell.getRow() == row) && (cell.getCol() == column)) {
+  return cell;
+  } 
+  else if (cell.getRow() > row) {
+  return null;
+  }
+  }
+  return null;
+  }","/**
+  * Returns the cell at (row, column), or null if not found. 
+  * @param row The row.
+  * @param column The column.
+  * @return The cell at (row, column), or null.
+  */",Consistent but Missing Specific Info,Consistent but Missing Specific Info,0,Missing Critical Information,Missing Non-Critical Information,,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,0
+140,"public void exportToEPS(File file) throws IOException { EpsGraphics dummy = new EpsGraphics(""Title"", new ByteArrayOutputStream(), 0, 0, 1, 1, ColorMode.BLACK_AND_WHITE); NLPInstance filtered = filterInstance(); Dimension dim = renderer.render(filtered, dummy); EpsGraphics g = new EpsGraphics(""Title"", new FileOutputStream(file), 0, 0, (int) dim.getWidth() + 2, (int) dim.getHeight(), ColorMode.COLOR_RGB); renderer.render(filtered, g); g.flush(); g.close(); }",exports the current graph to eps,export to ps file,export the filter to a file,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void exportToEPS(File file) throws IOException {
+ 
+
+  EpsGraphics dummy = new EpsGraphics(""Title"", new ByteArrayOutputStream(),
+  0, 0, 1, 1, ColorMode.BLACK_AND_WHITE);
+ 
+
+  NLPInstance filtered = filterInstance();
+ 
+
+  Dimension dim = renderer.render(filtered, dummy);
+ 
+
+  EpsGraphics g = new EpsGraphics(""Title"", new FileOutputStream(file), 0, 0,
+  (int) dim.getWidth() + 2, (int) dim.getHeight(), ColorMode.COLOR_RGB);
+ 
+
+  renderer.render(filtered, g);
+ 
+
+  g.flush();
+  g.close();
+  }","/**
+  * Exports the current graph to EPS.
+  *
+  * @param file the eps file to export to.
+  * @throws IOException if IO goes wrong.
+  */",Partial Incorrect Information,Missing Attribute Specification,0,Missing Data Structures,Different Meaning,0,,,,Missing Data Structures,Missing Attribute Specification,0
+141,public void testForConnection() throws Exception { serverControl.ping(); },try to test for a connection throws exception if unable to get a connection,test for a connection,tests the connection to the server,test for the getter of the property,"public void testForConnection() throws Exception {
+  serverControl.ping();
+  }","/**
+  * Try to test for a connection Throws exception if unable to get a
+  * connection
+  */",Missing task elaboration,Missing task elaboration,Missing Attribute Specification,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Attribute Specification,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Attribute Specification
+142,"private void saveCashProperties() throws IOException { int size = cStore.getStoreSize(); cashLoader.setNumOfItems(size); for (int i = 0; i < size; i++) { cashLoader.setItem(i, cStore.getStoreItem(i)); } cashLoader.saveProperty(); }",this operation saves the attributes of the cash store to the input file,description of the method,saves the cash properties to the default store,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private void saveCashProperties() throws IOException {
+  int size = cStore.getStoreSize();
+  cashLoader.setNumOfItems(size);
+  for (int i = 0; i < size; i++) {
+  cashLoader.setItem(i, cStore.getStoreItem(i));
+  }
+  cashLoader.saveProperty();
+  }","/**
+  * This operation saves the attributes of the Cash Store to the 
+  * input file. 
+  * @throws java.io.IOException
+  */",Semantically Unrelated to Code,Partial Incorrect Information,0,Focusing Only on Method Name ,Missing Non-Critical Information,0,,,,Focusing Only on Method Name ,Partial Incorrect Information,0
+143,"public void testGetFacilityString() { String expected = ""kern user mail daemon auth syslog lpr news "" + ""uucp cron authpriv ftp local0 local1 local2 local3 "" + ""local4 local5 local6 local7 ""; StringBuffer actual = new StringBuffer(); for (int i = 0; i <= 11; i++) { actual.append(SyslogAppender.getFacilityString(i << 3)); actual.append(' '); } for (int i = 16; i <= 23; i++) { actual.append(SyslogAppender.getFacilityString(i << 3)); actual.append(' '); } assertEquals(expected, actual.toString()); }",test getfacilitystring for expected facility codes,tests getting the facility string,tests the } method,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testGetFacilityString() {
+  String expected =
+  ""kern user mail daemon auth syslog lpr news ""
+  + ""uucp cron authpriv ftp local0 local1 local2 local3 ""
+  + ""local4 local5 local6 local7 "";
+  StringBuffer actual = new StringBuffer();
+ 
+
+  for (int i = 0; i <= 11; i++) {
+  actual.append(SyslogAppender.getFacilityString(i << 3));
+  actual.append(' ');
+  }
+ 
+
+  for (int i = 16; i <= 23; i++) {
+  actual.append(SyslogAppender.getFacilityString(i << 3));
+  actual.append(' ');
+  }
+ 
+
+  assertEquals(expected, actual.toString());
+  }","/**
+  * Test getFacilityString for expected facility codes.
+  */",,,,Missing Critical Information,Failed to mention identifiers,0,Missing Identifier,Semantically Unrelated to Code,0,Missing Identifier,Failed to mention identifiers,0
+144,"public void testFormatResize() { Logger logger = Logger.getLogger(""org.apache.log4j.xml.PatternLayoutTest""); NDC.clear(); char[] msg = new char[2000]; for (int i = 0; i < msg.length; i++) { msg[i] = 'A'; } LoggingEvent event1 = new LoggingEvent( ""org.apache.log4j.Logger"", logger, Level.DEBUG, new String(msg), null); PatternLayout layout = (PatternLayout) createLayout(); String result = layout.format(event1); LoggingEvent event2 = new LoggingEvent( ""org.apache.log4j.Logger"", logger, Level.WARN, ""Hello, World"", null); result = layout.format(event2); assertEquals(""["", result.substring(0, 1)); }",tests buffer downsizing code path,tests the resize method,this test checks the } method,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"public void testFormatResize() {
+  Logger logger = Logger.getLogger(""org.apache.log4j.xml.PatternLayoutTest"");
+  NDC.clear();
+ 
+
+  char[] msg = new char[2000];
+ 
+
+  for (int i = 0; i < msg.length; i++) {
+  msg[i] = 'A';
+  }
+ 
+
+  LoggingEvent event1 =
+  new LoggingEvent(
+  ""org.apache.log4j.Logger"", logger, Level.DEBUG, new String(msg), null);
+  PatternLayout layout = (PatternLayout) createLayout();
+  String result = layout.format(event1);
+  LoggingEvent event2 =
+  new LoggingEvent(
+  ""org.apache.log4j.Logger"", logger, Level.WARN, ""Hello, World"", null);
+  result = layout.format(event2);
+  assertEquals(""["", result.substring(0, 1));
+  }","/**
+  * Tests buffer downsizing code path.
+  */",,,,Consistent but Missing Specific Info,Failed to mention identifiers,0,Missing Identifier,Semantically Unrelated to Code,0,Consistent but Missing Specific Info,Failed to mention identifiers,0
+145,"private OAuthUser retrieveUserProfile() { PersistenceManager pm = pmf.getPersistenceManager(); OAuthUser userProfile = null; try { userProfile = pm.getObjectById(OAuthUser.class, userRecordKey); } catch (JDOObjectNotFoundException e) { LOG.info(""Datastore object not yet initialized with key: "" + userRecordKey); } finally { pm.close(); } return userProfile; }",retrieves user's oauth information from datastore,retrieve the user profile,retrieves the user profile from the session,###CAN'T PARSE AST/SAMPLIGH THRESHOLD###,"private OAuthUser retrieveUserProfile() {
+  PersistenceManager pm = pmf.getPersistenceManager();
+  OAuthUser userProfile = null;
+  try {
+  userProfile = pm.getObjectById(OAuthUser.class, userRecordKey);
+  } catch (JDOObjectNotFoundException e) {
+  LOG.info(""Datastore object not yet initialized with key: "" + userRecordKey);
+  } finally {
+  pm.close();
+  }
+  return userProfile;
+  }","/**
+  * Retrieves user's oauth information from Datastore.
+  * 
+  * @return the user profile (or null if not found).
+  */",,,,Missing Critical Information,Incorrect Identifier/Attribute,0,Missing Critical Information,Missing Critical Information,0,Missing Critical Information,Missing Critical Information,0
+146,"public boolean canConnectTo(GraphModel gm, Object otherPort) { return (super.canConnectTo(gm, otherPort)) && (otherPort.getClass() == this.getClass()) && (this.type() != ((PortPower)otherPort).type()) && getEdges().size() == 0; }",add the constraint that portpowers can only be connected to other ports of the same type and sockets can only be connected to recepticals,can this edge connect to another graph?,determines if the specified connection is connected to this connection,checks whether the given var can be able to connect to the given var,"public boolean canConnectTo(GraphModel gm, Object otherPort) {
+  return (super.canConnectTo(gm, otherPort)) &&
+  (otherPort.getClass() == this.getClass()) &&
+  (this.type() != ((PortPower)otherPort).type()) &&
+  getEdges().size() == 0;
+  // needs-more-work: should work with subclasses too. This is
+  // really a java.lang.Class method that is missing: isSubclass()
+  }","/** Add the constraint that PortPowers can only be connected to
+  * other ports of the same type. And SOCKETs can only be connected
+  * to RECEPTICALs. */",,,,Focusing Only on Method Name ,Different Meaning,Failed to mention identifiers,Missing Identifier,Semantically Unrelated to Code,Semantically Unrelated to Code,Focusing Only on Method Name ,Different Meaning,Semantically Unrelated to Code
+147,public void setSourceFigNode(FigNode fn) { try { if (sourceFigNode != null) { sourceFigNode.removeFigEdge(this); } sourceFigNode = fn; fn.addFigEdge(this); } catch (Exception ex) { ex.printStackTrace(); } },set the fignode representing this figedge's from-node,set the source node of this edge,sets the source endpoint of the edge,sets the source node for the node,"public void setSourceFigNode(FigNode fn) {
+  // assert fn != null
+  try {
+  if (sourceFigNode != null) {
+  sourceFigNode.removeFigEdge(this);
+  }
+ 
+
+  sourceFigNode = fn;
+  fn.addFigEdge(this);
+  } catch (Exception ex) {
+  ex.printStackTrace();
+  }
+  }",/** Set the FigNode representing this FigEdge's from-node. */,,,,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Identifier,Missing Identifier,Missing Non-Critical Information,Consistent but Missing Specific Info,Consistent but Missing Specific Info,Missing Non-Critical Information
