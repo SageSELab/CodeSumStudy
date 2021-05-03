@@ -1,4 +1,4 @@
-# CodeSummarizationStudy
+# CodeSummarizationEmpiricalStudy
 
 ### Project structure
 #### CodeBERT
@@ -11,7 +11,7 @@ The source code for this model is forked from [NeuralCodeSum-Repository](https:/
 - NeuralCodeSum/preprocessing: In addition to preprocessing techniques applied in the CodeBERT, we added some other preprocessing techniques, e.g., split tokens for this model.
 
 #### Code2seq
-- code2seq/code2seq-master: original code2seq files forked from [code2seq-repo](https://github.com/tech-srl/code2seq)
+We used the open-source implementation from [code2seq-repo](https://github.com/tech-srl/code2seq)
 - code2seq/JavaExtractor: modified dataset-build and AST generation files. Original repo: [LRNavin/AutoComments](https://github.com/LRNavin/AutoComments)
 - code2seq/preproc: dataset preprocess folder (part of AST generation) with slight modification in code2seq/preproc/feature_extractor.py
 
