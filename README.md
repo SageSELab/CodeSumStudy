@@ -12,7 +12,6 @@ The source code for this model is forked from [NeuralCodeSum-Repository](https:/
 
 #### Code2seq
 - code2seq/code2seq-master: original code2seq files forked from [code2seq-repo](https://github.com/tech-srl/code2seq)
-- code2seq/funcom_processed: processed Funcom dataset should be here. We could not upload the original file because of the file size restriction. So a slice of funcom_processed dataframe file is added. Also, a few data is added in code2seq/data folder
 - code2seq/JavaExtractor: modified dataset-build and AST generation files. Original repo: [LRNavin/AutoComments](https://github.com/LRNavin/AutoComments)
 - code2seq/preproc: dataset preprocess folder (part of AST generation) with slight modification in code2seq/preproc/feature_extractor.py
 
